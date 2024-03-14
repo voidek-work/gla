@@ -26,6 +26,8 @@
         h1 {
             font-weight: normal;
             font-size: 2.4em;
+            margin: 12px 0;
+            line-height: 1.2em;
         }
 
         body {
@@ -50,9 +52,11 @@
         }
 
         .header {
-            padding: 10px 20px 0;
+            padding: 0 20px 12px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            background: var(--accent-color);
         }
 
         .header a {
@@ -70,52 +74,40 @@
         .section {
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            background: var(--accent-color);
+            color: var(--second-color)
         }
 
-        .content::before {
-            content: '';
-            display: block;
-            position: absolute;
-            bottom: 0;
-            top: 0;
-            left: -20px;
-            right: -20px;
-            height: 100%;
-            background: inherit;
-            transform: skewY(-5deg);
-            transform-origin: 0;
-            z-index: -1;
-            width: calc(100% + 40px);
+        .section:nth-child(2n) .content {
+            clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 40px));
         }
 
-        .content::after {
-            content: '';
-            display: block;
-            position: absolute;
-            bottom: 0;
-            top: 0;
-            left: -20px;
-            right: -20px;
-            height: 100%;
-            background: inherit;
-            transform: skewY(-5deg);
-            transform-origin: 100%;
-            z-index: -1;
-            width: calc(100% + 40px);
+        .section__white .content {
+            background-color: var(--second-color);
+            padding:
+                /*20px*/
+                0 20px;
+        }
+
+        .section__main .photo {
+            /* clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 40px)); */
+            margin-top: -40px;
         }
 
         .section__main .content {
-            background-color: var(--second-color);
+            clip-path: none;
+            min-height: auto;
+            margin-bottom: 10px;
         }
 
         .content {
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
+            padding:
+                /*80px*/
+                0 20px;
+
             min-height: calc(100vh - 260px);
             margin-bottom: 20px;
+            clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+            background-color: var(--accent-color);
         }
 
         .img img {
@@ -124,7 +116,7 @@
             max-width: 100%;
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         .bold {
@@ -135,42 +127,176 @@
             padding-left: 20px;
         }
 
-        .img {
+        .logo {
             width: 140px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .photo {
+            clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+            margin: 0 -20px;
+            /* height: 160px; */
+            height: 220px;
+        }
+
+        .section:nth-child(2n) .photo {
+            clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 40px));
+        }
+
+        .photo__svarka img {
+            object-position: 0 -176px;
+        }
+
+        .photo__korobka_polovina img {
+            object-position: 0 -215px;
+        }
+
+        .photo__shtangen img {
+            /* object-position: 0 -215px; */
+        }
+
+        .photo__kluchi_na_stene img {
+            /* object-position: 0 -215px; */
+        }
+
+        .section__white {
+            color: var(--accent-color);
+        }
+
+        .section__services .content {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .section__features,
+        .section__partners,
+        .section__contacts {
+            margin-top: -100px;
+        }
+
+        .photo__vecher_box img {
+            object-position: 0 -170px;
+        }
+
+        .photo__korobka_ladi img {
+            object-position: 0 -200px;
+        }
+
+        .photo__ruka img {
+            /* object-position: 15px -7px; */
+        }
+
+        .brif {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: decimal;
+            gap: 5px;
+        }
+
+        .rounded {
+            counter-reset: li;
+            list-style: none;
+            font-size: 14px;
+            padding: 0 0 0 1em;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+            margin-right: -20px;
+        }
+
+        .rounded li {
+            position: relative;
+            display: block;
+            padding: .4em .4em .4em 2em;
+            margin: .5em 0;
+            background: var(--accent-color);
+            color: var(--second-color);
+            text-decoration: none;
+            /* border-radius: .3em; */
+            transition: .3s ease-out;
+        }
+
+        .rounded li:last-child {
+            margin-right: 20px;
+        }
+
+        .rounded li:last-child::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-image: url(./img/down-arrow.svg);
+            right: 0;
+            bottom: -30px;
+        }
+
+        .rounded li:before {
+            content: '☆';
+            /* content: counter(li); */
+            counter-increment: li;
+            position: absolute;
+            left: -1.3em;
+            top: 50%;
+            margin-top: -1.3em;
+            background: var(--accent-color);
+            height: 2em;
+            width: 2em;
+            line-height: 2em;
+            border: .3em solid var(--second-color);
+            text-align: center;
+            font-weight: bold;
+            border-radius: 2em;
+            transition: all .3s ease-out;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="section section__main">
+    <div class="section section__main section__white">
         <header class="header">
-            <a href="tel:+995591545105">+995 591 545 105</a>
-            <a target="_blank" href="https://maps.app.goo.gl/8kb6Kq7EQt6SVVVCA">68 Airport Hwy, Batumi</a>
+            <div class="img logo">
+                <picture>
+                    <source media="(max-width: 844px)" srcset="./img/logo.png" />
+                    <source media="(min-width: 845px)" srcset="./img/logo_big.png" />
+                    <img src="./img/logo.png" alt="logo" />
+                </picture>
+            </div>
+            <div class="links">
+                <a href="tel:+995591545105">+995 591 545 105</a>
+                <a target="_blank" href="https://maps.app.goo.gl/8kb6Kq7EQt6SVVVCA">68 Airport Hwy, Batumi</a>
+            </div>
         </header>
-        <div class="img">
-            <picture>
-                <source media="(max-width: 844px)" srcset="./img/logo.png" />
-                <source media="(min-width: 845px)" srcset="./img/logo_big.png" />
-                <img src="./img/logo.png" alt="logo" />
-            </picture>
-        </div>
+
         <div class="content">
-            <h1>Автосервис <div class="bold">
+            <div class="img photo photo__">
+                <img src="./img/сервис_сбоку.jpg" alt="сварка" />
+            </div>
+            <h1>Автосервис
+                <div class="bold">
                     Georgia Like Auto
                 </div>
+                Это:
             </h1>
-            <ul class="list">
+            <ul class="list rounded">
                 <li class="list_item">Мультибренд</li>
                 <li class="list_item">Специализация на ходовой части</li>
-                <li class="list_item">Широкий спектр услуг</li>
+                <li class="list_item">Широкий спектр услуг
+                    <div class="img">
+                        <img src="./img/down-arrow.svg" alt="">
+                    </div>
+                </li>
             </ul>
 
-            <div class="nav">
+            <!-- <div class="nav">
                 <a href="#services">Услуги</a>
-                <a href="#about">О нас</a>
+                <a href="#features">О нас</a>
                 <a href="#contacts">Контакты</a>
-            </div>
+            </div> -->
         </div>
 
 
@@ -178,18 +304,98 @@
 
 
     <div class="section section__services" id="services">
-        <h2>Услуги</h2>
-        <p>Здесь будет информация о предлагаемых услугах.</p>
+        <div class="content">
+            <div class="img photo photo__korobka_polovina">
+                <img src="./img/коробка_половина.jpg" alt="коробка лады" />
+            </div>
+            <h2>Услуги и специализация</h2>
+            <ul class="list">
+                <li class="list_item">Ремонт ходовой части</li>
+                <li class="list_item">Двигатели</li>
+                <li class="list_item">МКПП</li>
+                <li class="list_item">Устранение течей</li>
+                <li class="list_item">Разбор и сбор салона</li>
+                <li class="list_item">Сварка металла</li>
+                <li class="list_item">Проверка CO2 в жидкостях</li>
+                <li class="list_item">Пресс до 20 тонн</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="section section__about" id="about">
-        <h2>О нас</h2>
-        <p>Информация о вашем автосервисе, его истории и команде.</p>
+    <div class="section section__features section__white" id="features">
+        <div class="content">
+            <div class="img photo photo__kluchi_na_stene">
+                <img src="./img/ключи_на_стене.jpg" alt="ключи_на_стене" />
+            </div>
+            <h2>Преимущества и отличительные особенности</h2>
+            <ul class="list">
+                <li class="list_item">Гарантия качества и ответственность за работы.</li>
+                <li class="list_item">Полное оформление документов для бизнес-клиентов.</li>
+                <li class="list_item">Справедливое соотношение цена/качество.</li>
+                <li class="list_item">Онлайн-консультации и работа по записи.</li>
+                <li class="list_item">Команда квалифицированных мастеров с соответствующим образованием.</li>
+                <li class="list_item">Услуги подбора и заказа запчастей и масел.</li>
+                <li class="list_item">Современное ПО и специнструменты.</li>
+                <li class="list_item">Гарантии на выполненные работы и возможность рекламации.</li>
+                <li class="list_item">Возврат денег в случае ошибки по нашей вине.</li>
+                <li class="list_item">Полная легальность и предоставление всех необходимых документов.</li>
+                <li class="list_item">Индивидуальный подход и бережное отношение к автомобилю.</li>
+                <li class="list_item">Решение сложных задач, которые другие сервисы не могут выполнить.</li>
+                <li class="list_item">Честность, прозрачность и удобство использования услуг.</li>
+            </ul>
+        </div>
     </div>
+    <div class="section section__reviews" id="reviews">
+        <div class="content">
+            <div class="img photo photo__vecher_box">
+                <img src="./img/вечер_боксы.jpg" alt="Вечер боксы" />
+            </div>
+            <h2>Кейсы и отзывы клиентов</h2>
+            <ul class="list">
+                <li class="list_item">"Отличный сервис! Все проблемы решены оперативно и качественно."</li>
+                <li class="list_item">"Нашёл этот сервис после России, работают парни из России, спокойно и
+                    рассудительно."</li>
+                <li class="list_item">"Хороший сервис: чисто, просторно, внимательное обслуживание."</li>
 
-    <div class="section section__contacts" id="contacts">
-        <h2>Контакты</h2>
-        <p>Здесь можно разместить контактные данные, форму обратной связи и карту.</p>
+            </ul>
+        </div>
+    </div>
+    <div class="section section__partners section__white" id="partners">
+        <div class="content">
+            <div class="img photo photo__instrumenti_na_stole">
+                <img src="./img/документы.jpg" alt="инструменты_на_столе" />
+            </div>
+            <h2>Партнёрская программа</h2>
+            <ul class="list">
+                <li class="list_item">Условия для бизнес-клиентов: Кэшбэк или скидка 10% при обслуживании на сумму от
+                    300+ лари в месяц.</li>
+                <li class="list_item">Преимущества партнёрства: 5% от стоимости ремонта, выплата раз в месяц.</li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="section section__tech" id="tech">
+        <div class="content">
+            <div class="img photo photo__svarka">
+                <img src="./img/сварка.jpg" alt="сварка" />
+            </div>
+
+            <h2>Технические возможности и оборудование</h2>
+            <ul class="list">
+                <li class="list_item">Оборудование: 2 подъёмника, множество съёмников и ключей, гайковёрты, компрессор,
+                    специнструменты для проверки форсунок, свечей</li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="section section__contacts section__white" id="contacts">
+        <div class="content">
+            <div class="img photo photo__ruka">
+                <img src="./img/рука_с_визиткой.jpg" alt="сварка" />
+            </div>
+            <h2>Контакты</h2>
+            <p>Здесь можно разместить контактные данные, форму обратной связи и карту.</p>
+        </div>
     </div>
 
     <footer>
