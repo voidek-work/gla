@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
         :root {
             --body-font: "Fira Sans";
@@ -17,7 +19,15 @@
             --body-font-weight: 400;
             --accent-color: #AD2424;
             --second-color: #fefefe;
+            --swiper-navigation-size: 20px;
+            --swiper-navigation-sides-offset: 0px;
+            --swiper-navigation-color: var(--second-color);
+            --swiper-navigation-top-offset: calc(100% - 10px);
+            --swiper-pagination-bottom: 0px;
+            --swiper-pagination-color: var(--second-color);
         }
+
+
 
         * {
             box-sizing: border-box;
@@ -106,7 +116,7 @@
 
             min-height: calc(100vh - 260px);
             margin-bottom: 20px;
-            clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+            /*clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);*/
             background-color: var(--accent-color);
         }
 
@@ -170,7 +180,12 @@
 
         .section__services .content {
             padding-top: 0;
-            padding-bottom: 0;
+            padding-bottom: 90px;
+        }
+
+        .section__reviews .content {
+            padding-top: 0;
+            padding-bottom: 90px;
         }
 
         .section__features,
@@ -202,7 +217,7 @@
             counter-reset: li;
             list-style: none;
             font-size: 14px;
-            padding: 0 0 0 1em;
+            padding: 0;
             text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
             margin-right: -20px;
         }
@@ -215,27 +230,12 @@
             background: var(--accent-color);
             color: var(--second-color);
             text-decoration: none;
-            /* border-radius: .3em; */
             transition: .3s ease-out;
         }
 
-        .rounded li:last-child {
-            margin-right: 20px;
-        }
-
-        .rounded li:last-child::after {
-            content: '';
-            position: absolute;
-            display: block;
-            width: 30px;
-            height: 30px;
-            background-image: url(./img/down-arrow.svg);
-            right: 0;
-            bottom: -30px;
-        }
-
         .rounded li:before {
-            content: '☆';
+            content: '⚙';
+            /* content: '☆'; */
             /* content: counter(li); */
             counter-increment: li;
             position: absolute;
@@ -251,6 +251,160 @@
             font-weight: bold;
             border-radius: 2em;
             transition: all .3s ease-out;
+        }
+
+        .blocks {
+            counter-reset: li;
+            list-style: none;
+            font-size: 14px;
+            padding: 0 0 0 1em;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+            margin-right: -20px;
+            padding-left: 2.4em;
+        }
+
+        .blocks li {
+            position: relative;
+            display: block;
+            padding: .4em .4em .4em .4em;
+            margin: .5em 0;
+            background: var(--accent-color);
+            color: var(--second-color);
+            text-decoration: none;
+            transition: .3s ease-out;
+        }
+
+        .blocks li:first-child:before {
+            content: '☆';
+        }
+
+        .blocks li::before {
+            content: '✓';
+            counter-increment: li;
+            position: absolute;
+            left: -2.4em;
+            top: 50%;
+            margin-top: -1.1em;
+            background: var(--accent-color);
+            height: 100%;
+            width: 2.1em;
+            line-height: 2em;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .list__big .list_item {
+            margin-bottom: 5px;
+        }
+
+        .hidden {
+            height: 0;
+            opacity: 0;
+        }
+
+        .toggle {
+            font-size: 14px;
+            text-decoration: underline;
+            margin-left: 21px;
+        }
+
+        .swiper {
+            margin-bottom: 20px;
+        }
+
+        .swiper-slide {
+            padding: 0 0 30px 0;
+            margin: auto;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .user_avatar {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--second-color);
+        }
+
+        .user_name {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .badge_list {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            background: var(--second-color);
+            padding-left: 7px;
+            border-radius: 5px;
+            height: 50.5px;
+            overflow: hidden;
+        }
+
+        .badge_logo {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        .badge_data {
+            height: inherit;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .badge_logo img,
+        .badge_data img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+        }
+
+        .number {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            row-gap: 10px;
+        }
+
+        .number_cnt {
+            flex: 1 1 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .number_value {
+            font-size: 1.8em;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        .number_text {
+            font-size: 1.4em;
+            line-height: 1;
+        }
+
+        .divider {
+            width: 94%;
+            height: 2px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            margin: 15px auto;
         }
     </style>
 </head>
@@ -273,23 +427,55 @@
         </header>
 
         <div class="content">
-            <div class="img photo photo__">
-                <img src="./img/сервис_сбоку.jpg" alt="сварка" />
+            <div class="img photo photo__servis_sboku">
+                <img src="./img/сервис_сбоку.jpg" alt="сервис_сбоку" />
             </div>
-            <h1>Автосервис
+            <h1>
+                Автосервис
                 <div class="bold">
                     Georgia Like Auto
                 </div>
-                Это:
+                Мультибренд
             </h1>
-            <ul class="list rounded">
-                <li class="list_item">Мультибренд</li>
-                <li class="list_item">Специализация на ходовой части</li>
-                <li class="list_item">Широкий спектр услуг
-                    <div class="img">
-                        <img src="./img/down-arrow.svg" alt="">
+
+            <div class="divider"></div>
+
+            <ul class="list number">
+                <li class="list_item number_cnt">
+                    <div class="number_value">
+                        5000+
+                    </div>
+                    <div class="number_text">
+                        успешных ремонтов
                     </div>
                 </li>
+                <li class="list_item number_cnt">
+                    <div class="number_value">
+                        12 лет
+                    </div>
+                    <div class="number_text">
+                        средний стаж мастеров
+                    </div>
+                </li>
+                <li class="list_item number_cnt">
+                    <div class="number_value">
+                        1 год
+                    </div>
+                    <div class="number_text">
+                        в Батуми
+                    </div>
+                </li>
+                <li class="list_item number_cnt">
+                    <div class="number_value">
+                        2
+                    </div>
+                    <div class="number_text">
+                        подъемника
+                    </div>
+                </li>
+
+
+
             </ul>
 
             <!-- <div class="nav">
@@ -310,14 +496,25 @@
             </div>
             <h2>Услуги и специализация</h2>
             <ul class="list">
-                <li class="list_item">Ремонт ходовой части</li>
-                <li class="list_item">Двигатели</li>
+                <li class="list_item">Техническое обслуживание ☆</li>
+                <li class="list_item">Диагностика ☆</li>
+                <li class="list_item">Ходовая ☆</li>
+                <li class="list_item">Сварка металла</li>
+                <li class="list_item">Тормоза</li>
+                <li class="list_item">Двигатель</li>
                 <li class="list_item">МКПП</li>
+                <li class="list_item">Электрик</li>
                 <li class="list_item">Устранение течей</li>
                 <li class="list_item">Разбор и сбор салона</li>
-                <li class="list_item">Сварка металла</li>
-                <li class="list_item">Проверка CO2 в жидкостях</li>
-                <li class="list_item">Пресс до 20 тонн</li>
+            </ul>
+            <h2 class="toggle" data-for="#not">Чем мы НЕ занимаемся</h2>
+            <ul class="list hidden" id="not">
+                <li class="list_item">Ремонт АКПП, но можем заменить коробку целиком или поменять масло</li>
+                <li class="list_item">Кузовной ремонт</li>
+                <li class="list_item">Покраска</li>
+                <li class="list_item">Шиномонтаж</li>
+                <li class="list_item">Заправка кондиционеров</li>
+                <li class="list_item">Хернёй</li>
             </ul>
         </div>
     </div>
@@ -327,21 +524,16 @@
             <div class="img photo photo__kluchi_na_stene">
                 <img src="./img/ключи_на_стене.jpg" alt="ключи_на_стене" />
             </div>
-            <h2>Преимущества и отличительные особенности</h2>
-            <ul class="list">
-                <li class="list_item">Гарантия качества и ответственность за работы.</li>
-                <li class="list_item">Полное оформление документов для бизнес-клиентов.</li>
-                <li class="list_item">Справедливое соотношение цена/качество.</li>
-                <li class="list_item">Онлайн-консультации и работа по записи.</li>
-                <li class="list_item">Команда квалифицированных мастеров с соответствующим образованием.</li>
-                <li class="list_item">Услуги подбора и заказа запчастей и масел.</li>
-                <li class="list_item">Современное ПО и специнструменты.</li>
-                <li class="list_item">Гарантии на выполненные работы и возможность рекламации.</li>
-                <li class="list_item">Возврат денег в случае ошибки по нашей вине.</li>
-                <li class="list_item">Полная легальность и предоставление всех необходимых документов.</li>
-                <li class="list_item">Индивидуальный подход и бережное отношение к автомобилю.</li>
-                <li class="list_item">Решение сложных задач, которые другие сервисы не могут выполнить.</li>
-                <li class="list_item">Честность, прозрачность и удобство использования услуг.</li>
+            <h2>Ваш автомобиль в надежных руках</h2>
+            <ul class="list list__big">
+                <li class="list_item">Всегда можем <b>показать</b> и рассказать, что происходит с автомобилем.
+                </li>
+                <li class="list_item">Соблюдаем <b>чистоту</b>, используем накидки на сидения, коврики и не только.</li>
+                <li class="list_item">Работаем <b>по записи</b>, бережём своё и Ваше время.</li>
+                <li class="list_item">Можем сами составить список, найти или заказать <b>запчасти</b> и масла.
+                </li>
+                <li class="list_item">Используем <b>современное ПО</b> для автосервисов и специнструменты.</li>
+                <li class="list_item">Работаем <b>официально</b> и предоставляем все необходимые документы.</li>
             </ul>
         </div>
     </div>
@@ -351,13 +543,101 @@
                 <img src="./img/вечер_боксы.jpg" alt="Вечер боксы" />
             </div>
             <h2>Кейсы и отзывы клиентов</h2>
-            <ul class="list">
-                <li class="list_item">"Отличный сервис! Все проблемы решены оперативно и качественно."</li>
-                <li class="list_item">"Нашёл этот сервис после России, работают парни из России, спокойно и
-                    рассудительно."</li>
-                <li class="list_item">"Хороший сервис: чисто, просторно, внимательное обслуживание."</li>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="user">
+                            <img class="user_avatar" src="./img/yakov_yaskevich.png" alt="">
+                            <div>
+                                <h4 class="user_name">Yakov Yaskevich</h4>
+                                <div class="user_rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        Отличный сервис! Нужно было выполнить разные виды работ по машине -
+                        проверить выхлопную, ремень генератора, поднять койловеры в подвеске, а так же выяснить причину
+                        запаха бензина снаружи и в салоне. Вежливо и оперативно подобрали время приема, разобрались в
+                        проблемах и заодно смотрели на прочие моменты по пути, всегда были на связи, помогли с поиском,
+                        выбором и покупкой запчастей. Все проблемы по итогу решены, оперативно и без спешки - спасибо
+                        большое! Буду обращаться еще
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="user">
+                            <img class="user_avatar" src="./img/вадим_богоратов.jpeg" alt="">
+                            <div>
+                                <h4 class="user_name">Вадим Богоратов</h4>
+                                <div class="user_rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        Отличный сервис, по записи, мастер Александр профи, всё хорошо объясняет
+                        по ходу ремонта и быстро делает. Обслуживал ходовую и тормоза, спектр работ широкий. Рекомендую
+                        🤟
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="user">
+                            <img class="user_avatar" src="./img/andrey_demedyuk.png" alt="">
+                            <div>
+                                <h4 class="user_name">Andrey Demedyuk</h4>
+                                <div class="user_rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        Хороший сервис: все чисто, просторно, нету такого, что одна машина
+                        на
+                        другой. Записался через W/A.
+                        Записывался на замену масла к Ивану (мастер). Все сделал быстро, качественно. Параллельно
+                        обсудили состояние передних рычагов подвески и другие вопросы по авто.
+                        Обслуживание на 5+.
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="user">
+                            <img class="user_avatar" src="./img/ya_default.png" alt="">
+                            <div>
+                                <h4 class="user_name">Q Q</h4>
+                                <div class="user_rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        Профессионалы своего дела!
 
-            </ul>
+                        Качественное,последовательное исполнение ,с фотоотчетом на всех этапах))
+                        Так же хочу отметить что работы выполнились в раньший срок чем обещали,посредством того что
+                        уделили этому больше времени чем указано в часах работы автосервиса
+
+                        Отличная ,организованная работа на всех этапах
+
+                        Благодарю
+
+                        Всем рекомендую!
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="user">
+                            <img class="user_avatar" src="./img/alexander_sobolev.png" alt="">
+                            <div>
+                                <h4 class="user_name">Alexander Sobolev</h4>
+                                <div class="user_rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        После России было страшно заезжать в автосервисы в Батуми, сильно не
+                        внушали доверия. Чудом нашёл этот сервис, работают парни из России, делают всё спокойно,
+                        рассудительно, мне нравится.
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="badge_list">
+                <div>
+                    <iframe src="https://yandex.ru/sprav/widget/rating-badge/166475658367?type=rating" width="150"
+                        height="50" frameborder="0"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/7J1L4RMAeL2tCVYSA" target="_blank" class="badge">
+                    <div class="badge_logo">
+                        <img src="./img/google_logo.png" alt="">
+                    </div>
+                    <div class="badge_data">
+                        <img src="./img/google.png" alt="">
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     <div class="section section__partners section__white" id="partners">
@@ -370,10 +650,22 @@
                 <li class="list_item">Условия для бизнес-клиентов: Кэшбэк или скидка 10% при обслуживании на сумму от
                     300+ лари в месяц.</li>
                 <li class="list_item">Преимущества партнёрства: 5% от стоимости ремонта, выплата раз в месяц.</li>
-
             </ul>
         </div>
     </div>
+    <!-- <div class="section section__partners section__white" id="partners">
+        <div class="content">
+            <div class="img photo photo__instrumenti_na_stole">
+                <img src="./img/документы.jpg" alt="инструменты_на_столе" />
+            </div>
+            <h2>Партнёрская программа</h2>
+            <ul class="list">
+                <li class="list_item">Условия для бизнес-клиентов: Кэшбэк или скидка 10% при обслуживании на сумму от
+                    300+ лари в месяц.</li>
+                <li class="list_item">Преимущества партнёрства: 5% от стоимости ремонта, выплата раз в месяц.</li>
+            </ul>
+        </div>
+    </div> -->
     <div class="section section__tech" id="tech">
         <div class="content">
             <div class="img photo photo__svarka">
@@ -382,6 +674,8 @@
 
             <h2>Технические возможности и оборудование</h2>
             <ul class="list">
+                <li class="list_item">Проверка CO₂ в жидкостях</li>
+                <li class="list_item">Пресс до 20 тонн</li>
                 <li class="list_item">Оборудование: 2 подъёмника, множество съёмников и ключей, гайковёрты, компрессор,
                     специнструменты для проверки форсунок, свечей</li>
 
@@ -394,6 +688,13 @@
                 <img src="./img/рука_с_визиткой.jpg" alt="сварка" />
             </div>
             <h2>Контакты</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2982.3931927013928!2d41.61042690000002!3d41.62563179999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406785c0dac18863%3A0xe0f88a63e67993c0!2z0JDQstGC0L7RgdC10YDQstC40YEgR2VvcmdpYSBMaWtlIEF1dG8!5e0!3m2!1sen!2sge!4v1710449357886!5m2!1sen!2sge"
+                width="400" height="300" style="border:0;margin:0 -24px;transform:scale(0.9)" allowfullscreen=""
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <iframe src="https://yandex.com/map-widget/v1/?z=12&ol=biz&oid=166475658367" width="100%" height="400"
+                frameborder="0"></iframe>
             <p>Здесь можно разместить контактные данные, форму обратной связи и карту.</p>
         </div>
     </div>
@@ -401,7 +702,27 @@
     <footer>
         <p>Автосервис &copy; 2024</p>
     </footer>
+    <script>
+        const toggler = (e) => {
+            document.querySelector(e.target.getAttribute('data-for')).classList.toggle('hidden');
+        }
+        document.querySelector('.toggle').addEventListener('click', toggler);
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+    </script>
 </body>
 
 </html>
