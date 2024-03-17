@@ -448,16 +448,23 @@
             border: 1px solid var(--accent-color);
             position: relative;
             overflow: hidden;
-            margin-bottom: 10px;
+            margin-bottom: 50px;
             padding-right: 30px;
-            margin-left: 50px;
+            /* /* margin-left: 50px; */
             margin-right: 50px;
         }
 
-        /* .process_item:nth-child(2n) {
+        .process_item:nth-child(2n) {
             margin-right: 0;
             margin-left: 50px;
-        } */
+            padding-right: 20px;
+            padding-left: 60px;
+        }
+
+        .process_item:nth-child(2n) .process_img {
+            right: auto;
+            left: 4px;
+        }
 
         /* .process_item::after {
             content: '';
@@ -772,7 +779,7 @@
             </div>
             <h2>Как мы работаем</h2>
             <div class="process">
-                <div class="process_item" id="firstId">
+                <div class="process_item" id="id0">
                     <div class="process_img process_img__message">
                         <img src="./img/send-message-64.png" alt="">
                     </div>
@@ -783,7 +790,7 @@
                             марку, модель, год и VIN код.</div>
                     </div>
                 </div>
-                <div class="process_item" id="secondId">
+                <div class="process_item" id="id1">
                     <div class="process_img process_img__check">
                         <img src="./img/car-check-64.png" alt="">
                     </div>
@@ -794,7 +801,7 @@
                         работ и сроки.
                     </div>
                 </div>
-                <div class="process_item">
+                <div class="process_item" id="id2">
                     <div class="process_img process_img__parts">
                         <img src="./img/brakes-64.png" alt="">
                     </div>
@@ -806,7 +813,7 @@
                             запчастей.</div>
                     </div>
                 </div>
-                <div class="process_item">
+                <div class="process_item" id="id3">
                     <div class="process_img process_img__repair">
                         <img src="./img/car-repair-64.png" alt="">
                     </div>
@@ -817,7 +824,7 @@
                             Гарантия до 6 месяцев, в зависимости от типа ремонта.</div>
                     </div>
                 </div>
-                <div class="process_item">
+                <div class="process_item" id="id4">
                     <div class="process_img process_img__auto">
                         <img src="./img/automobile-64.png" alt="">
                     </div>
@@ -962,21 +969,18 @@
             },
         });
 
+        Array.from({ length: 4 }).forEach((_, i) => {
+            arrowLine({
+                source: `#id${i}`,
+                destination: `#id${i + 1}`,
+                sourcePosition: 'bottomCenter',
+                destinationPosition: 'topCenter',
+                style: 'dot',
+                // color: '#ad2424aa',
+                color: '#bf5757',
+            });
+        })
 
-        arrowLine({
-            source: '#firstId',
-            sourcePosition: 'middleLeft',
-            // sourcePosition: 'middleRight',
-            // destinationPosition: 'topCenter',
-            destinationPosition: 'middleLeft',
-            destination: '#secondId',
-            style: 'dot',
-            color: '#ad2424',
-            // curvature: 0.6,
-            // d: path("M 320 2948 C 320 3078 220 2948 220 3078");
-            // d: path("M 320 2948 C 380 2948 160 3078 220 3078");
-            pivots: [{ x: -50, y: 50 }, {x: -50 , y: -50}]
-        });
     </script>
 </body>
 
