@@ -395,7 +395,7 @@
         }
 
         .number_text {
-            font-size: 1.4em;
+            font-size: 0.9em;
             line-height: 1;
         }
 
@@ -403,8 +403,133 @@
             width: 94%;
             height: 2px;
             background-color: var(--accent-color);
-            border-radius: 50%;
+            border-radius: 2px;
             margin: 15px auto;
+        }
+
+        .contacts_icons {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contacts_icon img {
+            width: 40px;
+        }
+
+        .contacts_icon a {
+            text-decoration: none;
+            color: var(--accent-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 14px;
+            gap: 2px;
+        }
+
+        .contacts_text {
+            /* text-decoration: none; */
+            color: var(--accent-color);
+            font-size: 14px;
+            display: block;
+        }
+
+        .contacts_text-cnt {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .process_item {
+            padding: 20px;
+            border: 1px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+            padding-right: 30px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        /* .process_item:nth-child(2n) {
+            margin-right: 0;
+            margin-left: 50px;
+        } */
+
+        /* .process_item::after {
+            content: '';
+            background-image: url(./img/arrow-90deg.svg);
+            width: 20%;
+            height: 50px;
+            display: block;
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: 48%;
+            right: -18%;
+            /* transform: rotate(90deg); */
+        .process_title {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .process_text {
+            /* font-size: 14px; */
+        }
+
+        .process_text__small {
+            font-size: 12px;
+        }
+
+        .process_img {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            opacity: 0.8;
+            width: 50px;
+            overflow: hidden;
+        }
+
+        .process_img img {
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .process_img__message {
+            width: 64px;
+            right: -7px;
+            bottom: -14px;
+        }
+
+        .process_img__check {
+            right: 0px;
+            bottom: -7px;
+            opacity: 0.7;
+        }
+
+        .process_img__parts {
+            right: 2px;
+            bottom: -22px;
+            width: 52px;
+            opacity: 0.6;
+        }
+
+        .process_img__repair {
+            opacity: 0.6;
+        }
+
+        .process_img__auto {
+            opacity: 0.6;
+            bottom: -15px;
+        }
+
+        .process_img__done {
+            width: 25px;
+            right: 12px;
+            bottom: 27px;
         }
     </style>
 </head>
@@ -443,7 +568,7 @@
             <ul class="list number">
                 <li class="list_item number_cnt">
                     <div class="number_value">
-                        5000+
+                        2000+
                     </div>
                     <div class="number_text">
                         успешных ремонтов
@@ -467,10 +592,10 @@
                 </li>
                 <li class="list_item number_cnt">
                     <div class="number_value">
-                        2
+                        7 дней
                     </div>
                     <div class="number_text">
-                        подъемника
+                        в неделю, с 10 до 19
                     </div>
                 </li>
 
@@ -539,8 +664,8 @@
     </div>
     <div class="section section__reviews" id="reviews">
         <div class="content">
-            <div class="img photo photo__vecher_box">
-                <img src="./img/вечер_боксы.jpg" alt="Вечер боксы" />
+            <div class="img photo photo__bolgarka">
+                <img src="./img/болгарка_глушитель.jpg" alt="болгарка глушитель" />
             </div>
             <h2>Кейсы и отзывы клиентов</h2>
             <div class="swiper mySwiper">
@@ -643,14 +768,76 @@
     <div class="section section__partners section__white" id="partners">
         <div class="content">
             <div class="img photo photo__instrumenti_na_stole">
-                <img src="./img/документы.jpg" alt="инструменты_на_столе" />
+                <img src="./img/двигатель.jpg" alt="инструменты_на_столе" />
             </div>
-            <h2>Партнёрская программа</h2>
-            <ul class="list">
+            <h2>Как мы работаем</h2>
+            <div class="process">
+                <div class="process_item" id="firstId">
+                    <div class="process_img process_img__message">
+                        <img src="./img/send-message-64.png" alt="">
+                    </div>
+                    <div class="process_title">Обращение</div>
+                    <div class="process_text">Пишите нам <b>соц. сети</b> или звоните по телефону.
+                        <div class="process_text__small">
+                            Рекомендуем сразу указать
+                            марку, модель, год и VIN код.</div>
+                    </div>
+                </div>
+                <div class="process_item" id="secondId">
+                    <div class="process_img process_img__check">
+                        <img src="./img/car-check-64.png" alt="">
+                    </div>
+                    <div class="process_title">Консультация и диагностика</div>
+                    <div class="process_text">
+                        Вы приезжаете в наш сервис, мастер проводит <b>осмотр</b> автомобиля и с Вами согласовывается
+                        стоимость
+                        работ и сроки.
+                    </div>
+                </div>
+                <div class="process_item">
+                    <div class="process_img process_img__parts">
+                        <img src="./img/brakes-64.png" alt="">
+                    </div>
+                    <div class="process_title">Запчасти, масла и расходники</div>
+                    <div class="process_text">
+                        Мы можем подобрать, найти и заказать необходимые <b>запчасти</b>.
+                        <div class="process_text__small">
+                            100% предоплата. При заказе сроки 10-14 дней. Так же доступна установка ваших
+                            запчастей.</div>
+                    </div>
+                </div>
+                <div class="process_item">
+                    <div class="process_img process_img__repair">
+                        <img src="./img/car-repair-64.png" alt="">
+                    </div>
+                    <div class="process_title">Ремонт и обслуживание</div>
+                    <div class="process_text">
+                        Наши мастера проводят все необходимые виды <b>работ</b>.
+                        <div class="process_text__small">
+                            Гарантия до 6 месяцев, в зависимости от типа ремонта.</div>
+                    </div>
+                </div>
+                <div class="process_item">
+                    <div class="process_img process_img__auto">
+                        <img src="./img/automobile-64.png" alt="">
+                    </div>
+                    <div class="process_img process_img__done">
+                        <img src="./img/done-64.png" alt="">
+                    </div>
+                    <div class="process_title">Можно ехать</div>
+                    <div class="process_text">
+                        Мы связываемся с Вами, когда работа подходит к концу. Проводится контроль качества. Вы
+                        <b>забираете</b>
+                        автомобиль.
+                        <div class="process_text__small"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- <ul class="list">
                 <li class="list_item">Условия для бизнес-клиентов: Кэшбэк или скидка 10% при обслуживании на сумму от
                     300+ лари в месяц.</li>
                 <li class="list_item">Преимущества партнёрства: 5% от стоимости ремонта, выплата раз в месяц.</li>
-            </ul>
+            </ul> -->
         </div>
     </div>
     <!-- <div class="section section__partners section__white" id="partners">
@@ -674,11 +861,15 @@
 
             <h2>Технические возможности и оборудование</h2>
             <ul class="list">
-                <li class="list_item">Проверка CO₂ в жидкостях</li>
+                <li class="list_item">2 подъёмника</li>
                 <li class="list_item">Пресс до 20 тонн</li>
-                <li class="list_item">Оборудование: 2 подъёмника, множество съёмников и ключей, гайковёрты, компрессор,
-                    специнструменты для проверки форсунок, свечей</li>
-
+                <li class="list_item">Сварочные: полуавтомат и инвертор</li>
+                <li class="list_item">Гайковёрты, компрессор</li>
+                <li class="list_item">Проверка CO₂ в жидкостях</li>
+                <li class="list_item">Дымогенератор</li>
+                <li class="list_item">Специнструменты, фиксаторы</li>
+                <li class="list_item">Множество съёмников и ключей</li>
+                <li class="list_item">Стенды для проверки форсунок, свечей</li>
             </ul>
         </div>
     </div>
@@ -688,6 +879,52 @@
                 <img src="./img/рука_с_визиткой.jpg" alt="сварка" />
             </div>
             <h2>Контакты</h2>
+            <div class="contacts">
+
+                <div class="contacts_text-cnt">
+                    <div class="contacts_text">Телефон:</div>
+                    <a class="contacts_text bold" href="tel:+995591545105">+995 591 545 105</a>
+                </div>
+
+                <div class="contacts_text-cnt">
+                    <div class="contacts_text">Адрес:</div>
+                    <a class="contacts_text bold" target="_blank" href="https://maps.app.goo.gl/8kb6Kq7EQt6SVVVCA">68
+                        Airport Hwy, Batumi</a>
+                </div>
+                <div class="contacts_text">График работы: <b>пн-вс с 10:00 до 19:00</b></div>
+
+                <div class="divider"></div>
+
+                <div class="contacts_text">Наши соц. сети:</div>
+
+                <ul class="contacts_icons">
+                    <li class="contacts_icon">
+                        <a href="https://www.instagram.com/sto_batumi/">
+                            <img src="./img/instagram.svg" alt="instagram">
+                            instagram
+                        </a>
+                    </li>
+
+                    <li class="contacts_icon">
+                        <a href="https://wa.me/995591545105">
+                            <img src="./img/whatsapp.svg" alt="whatsapp">
+                            whatsapp
+                        </a>
+                    </li>
+                    <li class="contacts_icon">
+                        <a href="https://t.me/georgia_like_auto_batumi">
+                            <img src="./img/telegram.svg" alt="telegram">
+                            telegram
+                        </a>
+                    </li>
+                    <li class="contacts_icon">
+                        <a href="https://www.facebook.com/sto.batumi">
+                            <img src="./img/facebook.svg" alt="facebook">
+                            facebook
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2982.3931927013928!2d41.61042690000002!3d41.62563179999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406785c0dac18863%3A0xe0f88a63e67993c0!2z0JDQstGC0L7RgdC10YDQstC40YEgR2VvcmdpYSBMaWtlIEF1dG8!5e0!3m2!1sen!2sge!4v1710449357886!5m2!1sen!2sge"
                 width="400" height="300" style="border:0;margin:0 -24px;transform:scale(0.9)" allowfullscreen=""
@@ -711,6 +948,8 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/arrow-line/dist/arrow-line.min.js"></script>
+
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper(".mySwiper", {
@@ -721,6 +960,22 @@
             pagination: {
                 el: ".swiper-pagination",
             },
+        });
+
+
+        arrowLine({
+            source: '#firstId',
+            sourcePosition: 'middleLeft',
+            // sourcePosition: 'middleRight',
+            // destinationPosition: 'topCenter',
+            destinationPosition: 'middleLeft',
+            destination: '#secondId',
+            style: 'dot',
+            color: '#ad2424',
+            // curvature: 0.6,
+            // d: path("M 320 2948 C 320 3078 220 2948 220 3078");
+            // d: path("M 320 2948 C 380 2948 160 3078 220 3078");
+            pivots: [{ x: -50, y: 50 }, {x: -50 , y: -50}]
         });
     </script>
 </body>
