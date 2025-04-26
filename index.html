@@ -508,6 +508,96 @@
             right: 12px;
             bottom: 27px;
         }
+
+        .list_item__img {
+            display: none;
+        }
+
+        @media screen and (min-width: 768px) {
+            .logo {
+                height: 100px;
+            }
+
+            .section .photo {
+                margin: 0;
+            }
+
+
+
+            .section {
+                min-height: 100vh;
+                position: relative;
+                margin-bottom: -84px;
+            }
+
+            .section .photo {
+                position: absolute;
+                z-index: -1;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                height: 100vh;
+                background: #000;
+
+            }
+
+            .section .photo img {
+                opacity: 0.4;
+            }
+
+            .section .content {
+                width: 600px;
+                margin: auto;
+                margin-right: 20%;
+                padding: 40px;
+                border-radius: 5px;
+                border-bottom: 20px solid;
+            }
+
+            .section:nth-child(2n) .content {
+                clip-path: none;
+                margin: auto;
+                margin-left: 20%;
+            }
+
+            .section__services .content {
+                max-width: 90%;
+                width: 1000px;
+                margin: auto;
+            }
+
+            .section__services .list {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+            }
+
+            .section__services .list_item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                border: 2px solid;
+                width: 142px;
+                height: 142px;
+                text-align: center;
+                border-radius: 5px;
+                gap: 5px;
+            }
+
+            .section__services .list_item__img {
+                display: block;
+                max-width: 100%;
+                max-height: 100%;
+                width: 60px;
+
+                filter: invert(1);
+            }
+        }
     </style>
 </head>
 
@@ -598,13 +688,34 @@
             </div>
             <h2>Услуги и специализация</h2>
             <ul class="list">
-                <li class="list_item">Техническое обслуживание ☆</li>
-                <li class="list_item">Диагностика ☆</li>
-                <li class="list_item">Ходовая ☆</li>
-                <li class="list_item">Сварка металла</li>
-                <li class="list_item">Тормоза</li>
-                <li class="list_item">Двигатель</li>
-                <li class="list_item">МКПП</li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/oil.svg" alt="">
+                    Техническое обслуживание ☆
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/car-repair.svg" alt="">
+                    Диагностика ☆
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/chassis.svg" alt="">
+                    Ходовая ☆
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/welding.svg" alt="">
+                    Сварка металла
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/brake-disk.svg" alt="">
+                    Тормоза
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/motor.svg" alt="">
+                    Двигатель
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/transmission.svg" alt="">
+                    МКПП
+                </li>
                 <li class="list_item">Электрик</li>
                 <li class="list_item">Устранение течей</li>
                 <li class="list_item">Разбор и сбор салона</li>
@@ -713,7 +824,7 @@
                         <div class="user">
                             <img class="user_avatar" src="./img/alexander_sobolev.png" alt="">
                             <div>
-                                <h4 class="user_name">Alexander Sobolev</h4>
+                                <h4 class="user_name ">Alexander Sobolev</h4>
                                 <div class="user_rating">⭐⭐⭐⭐⭐</div>
                             </div>
                         </div>
