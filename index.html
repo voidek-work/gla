@@ -561,7 +561,7 @@
                 margin-left: 20%;
             }
 
-            .section__services .content {
+            .section.section__services .content {
                 max-width: 90%;
                 width: 1000px;
                 margin: auto;
@@ -596,6 +596,21 @@
                 width: 60px;
 
                 filter: invert(1);
+            }
+
+            .section__services::before {
+                content: '';
+                display: block;
+                height: 10px;
+                width: 100%;
+                background-color: var(--accent-color);
+                background-image: url(./img/фон.svg);
+                transform: rotate(1.7deg);
+                position: absolute;
+                top: 14px;
+                left: 0;
+                right: 0;
+                z-index: 3;
             }
         }
     </style>
@@ -634,31 +649,31 @@
 
             <ul class="list number">
                 <li class="list_item number_cnt">
-                    <div class="number_value">
-                        2000+
+                    <div class="number_value counter" data-start="0" data-duration="3000">
+                        7000+
                     </div>
                     <div class="number_text">
                         успешных ремонтов
                     </div>
                 </li>
                 <li class="list_item number_cnt">
-                    <div class="number_value">
-                        12 лет
+                    <div class="number_value counter" data-start="0" data-duration="2000">
+                        15 лет
                     </div>
                     <div class="number_text">
                         средний стаж мастеров
                     </div>
                 </li>
                 <li class="list_item number_cnt">
-                    <div class="number_value">
-                        1 год
+                    <div class="number_value counter" data-start="0" data-duration="2000">
+                        3 года
                     </div>
                     <div class="number_text">
                         в Батуми
                     </div>
                 </li>
                 <li class="list_item number_cnt">
-                    <div class="number_value">
+                    <div class="number_value counter" data-start="0" data-duration="2000">
                         7 дней
                     </div>
                     <div class="number_text">
@@ -716,9 +731,18 @@
                     <img class="list_item__img" src="./img/transmission.svg" alt="">
                     МКПП
                 </li>
-                <li class="list_item">Электрик</li>
-                <li class="list_item">Устранение течей</li>
-                <li class="list_item">Разбор и сбор салона</li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/electrican.svg" alt="">
+                    Электрик
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/leak.svg" alt="">
+                    Устранение течей
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/speedometer.svg" alt="">
+                    Разбор и сбор салона
+                </li>
             </ul>
             <h2 class="toggle" data-for="#not">Чем мы НЕ занимаемся</h2>
             <ul class="list hidden" id="not">
@@ -1060,7 +1084,46 @@
                 // color: '#ad2424aa',
                 color: '#bf5757',
             });
-        })
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll('.counter');
+
+            counters.forEach(counter => {
+                const start = +counter.getAttribute('data-start') || 0;
+                const duration = +counter.getAttribute('data-duration') || 2000;
+
+                // Ищем число в тексте (берем первое найденное)
+                const endMatch = counter.textContent.match(/\d+/);
+                if (!endMatch) return; // если число не нашли - пропускаем элемент
+
+                const end = +endMatch[0];
+                const originalText = counter.textContent;
+                const frameRate = 60;
+                const totalFrames = Math.round((duration / 1000) * frameRate);
+                const increment = (end - start) / totalFrames;
+
+                let current = start;
+                let frame = 0;
+
+                const updateCounter = () => {
+                    frame++;
+                    current += increment;
+                    if (frame < totalFrames) {
+                        const displayNumber = Math.floor(current);
+                        counter.textContent = originalText.replace(/\d+/, displayNumber);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = originalText.replace(/\d+/, end);
+                    }
+                };
+
+                counter.textContent = originalText.replace(/\d+/, start); // сначала показываем старт
+                updateCounter();
+            });
+        });
+
 
     </script>
 </body>
