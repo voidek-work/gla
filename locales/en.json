@@ -13,11 +13,11 @@
   "all_may": "All <b>May</b> discount <b>10%</b>",
   "cooling_system": "on all cooling system works, thermostats, pumps, radiators and antifreeze",
   "services_and_specialization": "Services and Specialization",
-  "maintenance": "Maintenance ☆",
-  "diagnostics": "Diagnostics ☆",
-  "chassis": "Chassis ☆",
-  "engine": "Engine ☆",
-  "brakes": "Brakes ☆",
+  "maintenance": "Maintenance ☆",
+  "diagnostics": "Diagnostics ☆",
+  "chassis": "Chassis ☆",
+  "engine": "Engine ☆",
+  "brakes": "Brakes ☆",
   "electrical": "Electrical",
   "welding": "Metal Welding",
   "manual_transmission": "Manual Transmission",
@@ -75,5 +75,7 @@
   "review_vadim": "Excellent service, by appointment, master Alexander is a pro, explains everything well during the repair and works quickly. Serviced the chassis and brakes, wide range of work. I recommend 🤟",
   "review_andrey": "Good service: everything is clean, spacious, no cars stacked on top of each other. Booked through W/A. Booked for oil change with Ivan (master). Everything was done quickly and efficiently. In parallel, we discussed the condition of the front suspension arms and other car issues. Service is 5+.",
   "review_qq": "Professionals in their field! Quality, consistent execution, with photo reports at all stages)) I would also like to note that the work was completed earlier than promised, by dedicating more time to it than indicated in the service center's working hours. Excellent, organized work at all stages. Thank you. I recommend to everyone!",
-  "review_alexander": "After Russia, I was afraid to go to auto services in Batumi, they didn't inspire much confidence. By chance I found this service, guys from Russia work here, they do everything calmly, thoughtfully, I like it."
+  "review_alexander": "After Russia, I was afraid to go to auto services in Batumi, they didn't inspire much confidence. By chance I found this service, guys from Russia work here, they do everything calmly, thoughtfully, I like it.",
+  "press": "Press up to 20 tons",
+  "lifts": "3 lifts"
 } 
