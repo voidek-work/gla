@@ -627,12 +627,32 @@ section .content {
     }
 
     .section .content {
-        width: 600px;
+        width: 900px;
         margin: auto;
         margin-right: 20%;
         padding: 40px;
         border-radius: 5px;
         border-bottom: 20px solid;
+    }
+
+    h1 {
+        font-size: 3.6em;
+    }
+
+    .number_value {
+        font-size: 2.7em;
+    }
+
+    .number_text {
+        font-size: 1.35em;
+    }
+
+    h2 {
+        font-size: 2.25em;
+    }
+
+    .process_text__small {
+        font-size: 16px;
     }
 
     .section:nth-child(2n) .content {
@@ -740,7 +760,7 @@ section .content {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        height: 140px;
+        height: 150px;
         width: 100%;
         justify-content: center;
         position: relative;
@@ -769,7 +789,7 @@ section .content {
 
     .section__sales .list_item {
         width: 260px;
-        height: 180px;
+        height: 232px;
     }
 
     .section__sales .list_wide.list {
@@ -780,7 +800,14 @@ section .content {
         width: 632px;
     }
 
-    /* .list_item_sale {
-        display: flex;
-    } */
+    .section__sales .list_item,
+    .section__features .list,
+    .contacts_text,
+    .process_text {
+        font-size: 20px;
+    }
+
+    .process_title {
+        font-size: 28px;
+    }
 }
