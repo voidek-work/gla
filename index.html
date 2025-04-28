@@ -67,6 +67,10 @@
             justify-content: space-between;
             align-items: center;
             background: var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            box-shadow: 0 2px 0px 0px white;
         }
 
         .header a {
@@ -87,19 +91,15 @@
             color: var(--second-color)
         }
 
-        .section:nth-child(2n) .content {
+        /* .section:nth-child(2n) .content {
             clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 40px));
-        }
+        } */
 
         .section__white .content {
             background-color: var(--second-color);
-            padding:
-                /*20px*/
-                0 20px;
         }
 
         .section__main .photo {
-            /* clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 40px)); */
             margin-top: -40px;
         }
 
@@ -110,19 +110,19 @@
         }
 
         .content {
-            padding:
-                /*80px*/
-                0 20px;
+            padding: 42px 20px;
 
             min-height: calc(100vh - 260px);
             margin-bottom: 20px;
-            /*clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);*/
             background-color: var(--accent-color);
+        }
+
+        section .content {
+            padding: 42px 20px;
         }
 
         .img img {
             display: block;
-            max-height: 100vh;
             max-width: 100%;
             width: 100%;
             height: 100%;
@@ -149,9 +149,11 @@
 
         .photo {
             clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
-            margin: 0 -20px;
-            /* height: 160px; */
+            /* margin: 0 -20px; */
             height: 220px;
+            margin-top: -64px;
+            margin-bottom: -42px;
+            z-index: 1;
         }
 
         .section:nth-child(2n) .photo {
@@ -178,7 +180,7 @@
             color: var(--accent-color);
         }
 
-        .section__services .content {
+        /* .section__services .content {
             padding-top: 0;
             padding-bottom: 90px;
         }
@@ -192,7 +194,7 @@
         .section__partners,
         .section__contacts {
             margin-top: -100px;
-        }
+        } */
 
         .photo__vecher_box img {
             object-position: 0 -170px;
@@ -414,6 +416,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 12px;
         }
 
         .contacts_icon img {
@@ -435,6 +438,7 @@
             color: var(--accent-color);
             font-size: 14px;
             display: block;
+            margin-bottom: 8px;
         }
 
         .contacts_text-cnt {
@@ -513,9 +517,42 @@
             display: none;
         }
 
+        .map {
+            border: 0;
+        }
+
+        .section__tech .content {
+            padding-bottom: 84px;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+
         @media screen and (min-width: 768px) {
+            .animate-once {
+                opacity: 0;
+            }
+
+            .animate-once.visible {
+                animation-name: fadeInUp;
+                animation-fill-mode: forwards;
+            }
+
             .logo {
-                height: 100px;
+                /* height: 100px; */
+                height: 62px;
             }
 
             .section .photo {
@@ -523,11 +560,15 @@
             }
 
 
-
             .section {
-                min-height: 100vh;
+                min-height: calc(100vh + 84px);
                 position: relative;
-                margin-bottom: -84px;
+                margin-bottom: -114px;
+                padding-bottom: 114px;
+            }
+
+            .section__main .photo {
+                margin-top: -42px;
             }
 
             .section .photo {
@@ -537,7 +578,8 @@
                 right: 0;
                 top: 0;
                 bottom: 0;
-                height: 100vh;
+                min-height: calc(100vh + 84px);
+                height: 100%;
                 background: #000;
 
             }
@@ -561,35 +603,42 @@
                 margin-left: 20%;
             }
 
-            .section.section__services .content {
+            .section .content.content_wide {
                 max-width: 90%;
                 width: 1000px;
                 margin: auto;
+                margin-top: 114px;
+                margin-bottom: 74px;
             }
 
-            .section__services .list {
+            .content_wide .list {
                 display: flex;
                 flex-wrap: wrap;
                 align-items: center;
-                justify-content: space-between;
-                gap: 12px;
+                justify-content: space-around;
+                gap: 32px;
+                padding-left: 0;
             }
 
-            .section__services .list_item {
+            .content_wide .list_item {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 padding: 20px;
                 border: 2px solid;
-                width: 142px;
+                width: 158px;
                 height: 142px;
                 text-align: center;
                 border-radius: 5px;
                 gap: 5px;
             }
 
-            .section__services .list_item__img {
+            .content_wide .list.list_odd .list_item {
+                width: 280px;
+            }
+
+            .content_wide .list_item__img {
                 display: block;
                 max-width: 100%;
                 max-height: 100%;
@@ -598,19 +647,71 @@
                 filter: invert(1);
             }
 
-            .section__services::before {
+            .section::before {
                 content: '';
                 display: block;
                 height: 10px;
                 width: 100%;
                 background-color: var(--accent-color);
                 background-image: url(./img/фон.svg);
-                transform: rotate(1.7deg);
+                transform: rotate(-1.7deg);
                 position: absolute;
                 top: 14px;
                 left: 0;
                 right: 0;
                 z-index: 3;
+            }
+
+            .section:nth-child(2n):before {
+                transform: rotate(1.7deg);
+            }
+
+            .section__main::before {
+                content: none
+            }
+
+            .process {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 40px;
+                justify-content: center;
+            }
+
+            .process_item {
+                max-width: calc(50% - 40px);
+                width: 480px;
+                margin-bottom: 0;
+            }
+
+            .map {
+                transform: none;
+            }
+
+            .contacts {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: 140px;
+                width: 100%;
+                justify-content: center;
+                position: relative;
+                padding-bottom: 35px;
+            }
+
+            .contacts .divider {
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                right: 0;
+            }
+
+            .section.section__contacts {
+                margin-bottom: 0;
+                padding-bottom: 34px;
+            }
+
+            .section .photo.photo__servis_sboku {
+                clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 100%);
             }
         }
     </style>
@@ -618,25 +719,25 @@
 
 <body>
 
+    <header class="header">
+        <div class="img logo">
+            <picture>
+                <source media="(max-width: 844px)" srcset="./img/logo.png" />
+                <source media="(min-width: 845px)" srcset="./img/logo_big.png" />
+                <img src="./img/logo.png" alt="logo" />
+            </picture>
+        </div>
+        <div class="links">
+            <a href="tel:+995591545105">+995 591 545 105</a>
+            <a target="_blank" href="https://maps.app.goo.gl/8kb6Kq7EQt6SVVVCA">68 Airport Hwy, Batumi</a>
+        </div>
+    </header>
     <div class="section section__main section__white">
-        <header class="header">
-            <div class="img logo">
-                <picture>
-                    <source media="(max-width: 844px)" srcset="./img/logo.png" />
-                    <source media="(min-width: 845px)" srcset="./img/logo_big.png" />
-                    <img src="./img/logo.png" alt="logo" />
-                </picture>
-            </div>
-            <div class="links">
-                <a href="tel:+995591545105">+995 591 545 105</a>
-                <a target="_blank" href="https://maps.app.goo.gl/8kb6Kq7EQt6SVVVCA">68 Airport Hwy, Batumi</a>
-            </div>
-        </header>
 
-        <div class="content">
-            <div class="img photo photo__servis_sboku">
-                <img src="./img/сервис_сбоку.jpg" alt="сервис_сбоку" />
-            </div>
+        <div class="img photo photo__servis_sboku">
+            <img src="./img/сервис_сбоку.jpg" alt="сервис_сбоку" />
+        </div>
+        <div class="content animate-once">
             <h1>
                 Автосервис
                 <div class="bold">
@@ -697,43 +798,44 @@
 
 
     <div class="section section__services" id="services">
-        <div class="content">
-            <div class="img photo photo__korobka_polovina">
-                <img src="./img/коробка_половина.jpg" alt="коробка лады" />
-            </div>
+        <div class="img photo photo__korobka_polovina">
+            <img src="./img/коробка_половина.jpg" alt="коробка лады" />
+        </div>
+        <div class="content content_wide animate-once">
             <h2>Услуги и специализация</h2>
             <ul class="list">
                 <li class="list_item">
                     <img class="list_item__img" src="./img/oil.svg" alt="">
-                    Техническое обслуживание ☆
+                    Техническое обслуживание ☆
                 </li>
                 <li class="list_item">
                     <img class="list_item__img" src="./img/car-repair.svg" alt="">
-                    Диагностика ☆
+                    Диагностика ☆
                 </li>
                 <li class="list_item">
                     <img class="list_item__img" src="./img/chassis.svg" alt="">
-                    Ходовая ☆
+                    Ходовая ☆
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/motor.svg" alt="">
+                    Двигатель ☆
+                </li>
+
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/brake-disk.svg" alt="">
+                    Тормоза ☆
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/electrican.svg" alt="">
+                    Электрик
                 </li>
                 <li class="list_item">
                     <img class="list_item__img" src="./img/welding.svg" alt="">
                     Сварка металла
                 </li>
                 <li class="list_item">
-                    <img class="list_item__img" src="./img/brake-disk.svg" alt="">
-                    Тормоза
-                </li>
-                <li class="list_item">
-                    <img class="list_item__img" src="./img/motor.svg" alt="">
-                    Двигатель
-                </li>
-                <li class="list_item">
                     <img class="list_item__img" src="./img/transmission.svg" alt="">
                     МКПП
-                </li>
-                <li class="list_item">
-                    <img class="list_item__img" src="./img/electrican.svg" alt="">
-                    Электрик
                 </li>
                 <li class="list_item">
                     <img class="list_item__img" src="./img/leak.svg" alt="">
@@ -743,6 +845,7 @@
                     <img class="list_item__img" src="./img/speedometer.svg" alt="">
                     Разбор и сбор салона
                 </li>
+
             </ul>
             <h2 class="toggle" data-for="#not">Чем мы НЕ занимаемся</h2>
             <ul class="list hidden" id="not">
@@ -757,10 +860,10 @@
     </div>
 
     <div class="section section__features section__white" id="features">
-        <div class="content">
-            <div class="img photo photo__kluchi_na_stene">
-                <img src="./img/ключи_на_стене.jpg" alt="ключи_на_стене" />
-            </div>
+        <div class="img photo photo__kluchi_na_stene">
+            <img src="./img/ключи_на_стене.jpg" alt="ключи_на_стене" />
+        </div>
+        <div class="content animate-once">
             <h2>Ваш автомобиль в надежных руках</h2>
             <ul class="list list__big">
                 <li class="list_item">Всегда можем <b>показать</b> и рассказать, что происходит с автомобилем.
@@ -775,10 +878,10 @@
         </div>
     </div>
     <div class="section section__reviews" id="reviews">
-        <div class="content">
-            <div class="img photo photo__bolgarka">
-                <img src="./img/болгарка_глушитель.jpg" alt="болгарка глушитель" />
-            </div>
+        <div class="img photo photo__bolgarka">
+            <img src="./img/болгарка_глушитель.jpg" alt="болгарка глушитель" />
+        </div>
+        <div class="content animate-once">
             <h2>Кейсы и отзывы клиентов</h2>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -866,22 +969,22 @@
                     <iframe src="https://yandex.ru/sprav/widget/rating-badge/166475658367?type=rating" width="150"
                         height="50" frameborder="0"></iframe>
                 </div>
-                <a href="https://maps.app.goo.gl/7J1L4RMAeL2tCVYSA" target="_blank" class="badge">
+                <!-- <a href="https://maps.app.goo.gl/7J1L4RMAeL2tCVYSA" target="_blank" class="badge">
                     <div class="badge_logo">
                         <img src="./img/google_logo.png" alt="">
                     </div>
                     <div class="badge_data">
                         <img src="./img/google.png" alt="">
                     </div>
-                </a>
+                </a> -->
             </div>
         </div>
     </div>
     <div class="section section__partners section__white" id="partners">
-        <div class="content">
-            <div class="img photo photo__instrumenti_na_stole">
-                <img src="./img/двигатель.jpg" alt="инструменты_на_столе" />
-            </div>
+        <div class="img photo photo__instrumenti_na_stole">
+            <img src="./img/двигатель.jpg" alt="инструменты_на_столе" />
+        </div>
+        <div class="content content_wide animate-once">
             <h2>Как мы работаем</h2>
             <div class="process">
                 <div class="process_item" id="id0">
@@ -966,30 +1069,62 @@
         </div>
     </div> -->
     <div class="section section__tech" id="tech">
-        <div class="content">
-            <div class="img photo photo__svarka">
-                <img src="./img/сварка.jpg" alt="сварка" />
-            </div>
+        <div class="img photo photo__svarka">
+            <img src="./img/сварка.jpg" alt="сварка" />
+        </div>
+        <div class="content content_wide animate-once">
 
             <h2>Технические возможности и оборудование</h2>
-            <ul class="list">
-                <li class="list_item">2 подъёмника</li>
-                <li class="list_item">Пресс до 20 тонн</li>
-                <li class="list_item">Сварочные: полуавтомат и инвертор</li>
-                <li class="list_item">Гайковёрты, компрессор</li>
-                <li class="list_item">Проверка CO₂ в жидкостях</li>
-                <li class="list_item">Дымогенератор</li>
-                <li class="list_item">Специнструменты, фиксаторы</li>
-                <li class="list_item">Множество съёмников и ключей</li>
-                <li class="list_item">Стенды для проверки форсунок, свечей</li>
+            <ul class="list list_odd">
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/suspension.svg" alt="">
+                    3 подъёмника
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/press.svg" alt="">
+                    Пресс до 20 тонн
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/welding-machine.svg" alt="">
+                    Сварочные: полуавтомат и инвертор
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/air-compressor.svg" alt="">
+                    Гайковёрты, компрессор
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/co2.svg" alt="">
+                    Проверка CO₂ в жидкостях
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/air.svg" alt="">
+                    Дымогенератор
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/tablet.svg" alt="">
+                    Диагностическое оборудование
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/timing-belt.svg" alt="">
+                    Специнструменты, фиксаторы
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/reparation.svg" alt="">
+                    Множество съёмников и ключей
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="./img/crane.svg" alt="">
+                    Кран 1,5 тонны
+                </li>
+                <!-- <li class="list_item">Стенды для проверки форсунок, свечей</li> -->
             </ul>
         </div>
     </div>
     <div class="section section__contacts section__white" id="contacts">
-        <div class="content">
-            <div class="img photo photo__ruka">
-                <img src="./img/рука_с_визиткой.jpg" alt="сварка" />
-            </div>
+        <div class="img photo photo__ruka">
+            <img src="./img/рука_с_визиткой.jpg" alt="сварка" />
+        </div>
+        <div class="content content_wide animate-once">
             <h2>Контакты</h2>
             <div class="contacts">
 
@@ -1039,17 +1174,16 @@
             </div>
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2982.3931927013928!2d41.61042690000002!3d41.62563179999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406785c0dac18863%3A0xe0f88a63e67993c0!2z0JDQstGC0L7RgdC10YDQstC40YEgR2VvcmdpYSBMaWtlIEF1dG8!5e0!3m2!1sen!2sge!4v1710449357886!5m2!1sen!2sge"
-                width="400" height="300" style="border:0;margin:0 -24px;transform:scale(0.9)" allowfullscreen=""
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                width="100%" height="400" class="map" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-            <iframe src="https://yandex.com/map-widget/v1/?z=12&ol=biz&oid=166475658367" width="100%" height="400"
+            <iframe src="https://yandex.com/map-widget/v1/?z=12&ol=biz&oid=166475658367" width="100%" height="500"
                 frameborder="0"></iframe>
-            <p>Здесь можно разместить контактные данные, форму обратной связи и карту.</p>
         </div>
     </div>
 
     <footer>
-        <p>Автосервис &copy; 2024</p>
+        <p>Автосервис Georgia Like Auto &copy; 2025</p>
     </footer>
     <script>
         const toggler = (e) => {
@@ -1074,18 +1208,23 @@
             },
         });
 
-        Array.from({ length: 4 }).forEach((_, i) => {
-            arrowLine({
-                source: `#id${i}`,
-                destination: `#id${i + 1}`,
-                sourcePosition: 'bottomCenter',
-                destinationPosition: 'topCenter',
-                style: 'dot',
-                // color: '#ad2424aa',
-                color: '#bf5757',
-            });
-        });
+        const setArrows = () => {
+            const width = window.innerWidth;
+            if (width < 768) {
+                Array.from({ length: 4 }).forEach((_, i) => {
+                    arrowLine({
+                        sourcePosition: 'bottomCenter',
+                        destinationPosition: 'topCenter',
+                        source: `#id${i}`,
+                        destination: `#id${i + 1}`,
+                        style: 'dot',
+                        color: '#bf5757'
+                    });
+                });
+            }
+        }
 
+        setArrows();
 
         document.addEventListener("DOMContentLoaded", () => {
             const counters = document.querySelectorAll('.counter');
@@ -1124,6 +1263,35 @@
             });
         });
 
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const width = window.innerWidth;
+            if (width > 768) {
+                const animatedElements = document.querySelectorAll('.animate-once');
+
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const el = entry.target;
+                            const delay = el.dataset.delay || '0s';
+                            const duration = el.dataset.duration || '0.6s';
+
+                            el.style.animationDelay = delay;
+                            el.style.animationDuration = duration;
+
+                            el.classList.add('visible');
+                            observer.unobserve(el); // Анимация только один раз
+                        }
+                    });
+                }, {
+                    threshold: 0.1 // элемент стал виден хотя бы на 10%
+                });
+
+                animatedElements.forEach(el => {
+                    observer.observe(el);
+                });
+            }
+        });
 
     </script>
 </body>
