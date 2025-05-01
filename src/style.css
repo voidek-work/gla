@@ -103,12 +103,13 @@ footer {
 
 .section__features .content {
   margin-bottom: -94px;
+  min-height: calc(100vh - 260px);
 }
 
 .content {
   padding: 42px 20px;
 
-  min-height: calc(100vh - 260px);
+  /* min-height: calc(100vh - 260px); */
   margin-bottom: 20px;
   background-color: var(--accent-color);
 }
@@ -623,6 +624,7 @@ section .content {
 
   .section .content {
     width: 900px;
+    max-width: 70%;
     margin: auto;
     margin-right: 20%;
     padding: 40px;
@@ -816,5 +818,9 @@ section .content {
 
   .ka .section__sales .list_item {
     height: 300px;
+  }
+
+  .section__sales {
+    padding-top: 40px;
   }
 }
