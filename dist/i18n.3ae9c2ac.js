@@ -1,0 +1,11 @@
+var swiper=new Swiper(".mySwiper",{navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},pagination:{el:".swiper-pagination"}});let setArrows=()=>{window.innerWidth<768&&Array.from({length:4}).forEach((t,e)=>{arrowLine({sourcePosition:"bottomCenter",destinationPosition:"topCenter",source:`#id${e}`,destination:`#id${e+1}`,style:"dot",color:"#bf5757"})})};setArrows(),document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".counter").forEach(t=>{let e=+t.getAttribute("data-start")||0,n=+t.getAttribute("data-duration")||2e3,o=t.textContent.match(/\d+/);if(!o)return;let r=+o[0],i=t.textContent,a=Math.round(n/1e3*60),s=(r-e)/a,d=e,l=0,c=()=>{if(l++,d+=s,l<a){let e=Math.floor(d);t.textContent=i.replace(/\d+/,e),requestAnimationFrame(c)}else t.textContent=i.replace(/\d+/,r)};t.textContent=i.replace(/\d+/,e),c()})}),document.addEventListener("DOMContentLoaded",()=>{if(window.innerWidth>768){let t=document.querySelectorAll(".animate-once"),e=new IntersectionObserver((t,e)=>{t.forEach(t=>{if(t.isIntersecting){let n=t.target,o=n.dataset.delay||"0s",r=n.dataset.duration||"0.6s";n.style.animationDelay=o,n.style.animationDuration=r,n.classList.add("visible"),e.unobserve(n)}})},{threshold:.1});t.forEach(t=>{e.observe(t)})}});
+//# sourceMappingURL=i18n.3ae9c2ac.js.map
+const img = document.querySelector('.full');
+
+if (img.complete) {
+    img.classList.add('loaded');
+} else {
+    img.addEventListener('load', function () {
+        this.classList.add('loaded');
+    });
+}
