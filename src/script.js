@@ -94,3 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+const img = document.querySelector('.full');
+
+if (img.complete) {
+    img.classList.add('loaded');
+} else {
+    img.addEventListener('load', function () {
+        this.classList.add('loaded');
+    });
+}
