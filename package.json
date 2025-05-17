@@ -2,7 +2,7 @@
   "name": "@voidek-work/gla",
   "version": "1.0.0",
   "scripts": {
-    "prebuild": "static-i18n -l en -i en -l ru -i ru -l ka -i ka src --allow-html",
+    "prebuild": "npm run i18n",
     "dev": "parcel src/index.html",
     "i18n": "static-i18n -l en -i en -l ru -i ru -l ka -i ka src --allow-html",
     "build": "parcel build i18n/en/index.html i18n/ru/index.html i18n/ka/index.html --dist-dir dist --public-url ./"
