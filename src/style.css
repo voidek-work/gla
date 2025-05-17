@@ -580,6 +580,29 @@ section .content {
   z-index: 3;
 }
 
+.language-switcher {
+    display: flex;
+    gap: 10px;
+    margin: 0 10px;
+}
+
+.lang-link {
+    text-decoration: none;
+    color: var(--second-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+.lang-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lang-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+}
 
 @media screen and (min-width: 768px) {
   .sales-link {
@@ -860,5 +883,9 @@ section .content {
 
   .section__sales {
     padding-top: 40px;
+  }
+
+  .language-switcher {
+    margin: 0 20px;
   }
 }
