@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ავტოსერვისი</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="/src/style.css">
+
+</head>
+
+<body class="ka">
+
+    <header class="header">
+        <div class="img logo">
+            <picture>
+                <img src="/src/img/logo.svg" alt="logo">
+            </picture>
+        </div>
+        <div class="nav-contacts">
+            <a class="sales-link" href="#sales">აქციები 🫰</a>
+            <div class="language-switcher">
+                <a href="/ru/" class="lang-link" data-lang="ru">RU</a>
+                <a href="/ka/" class="lang-link" data-lang="ka">KA</a>
+                <a href="/en/" class="lang-link" data-lang="en">EN</a>
+            </div>
+            <ul class="contacts_icons">
+                <li class="contacts_icon">
+                    <a href="https://www.instagram.com/sto_batumi/">
+                        <img src="/src/img/instagram.svg" alt="instagram">
+                        instagram
+                    </a>
+                </li>
+
+                <li class="contacts_icon">
+                    <a href="https://wa.me/995591545105">
+                        <img src="/src/img/whatsapp.svg" alt="whatsapp">
+                        whatsapp
+                    </a>
+                </li>
+                <li class="contacts_icon">
+                    <a href="https://t.me/georgia_like_auto_batumi">
+                        <img src="/src/img/telegram.svg" alt="telegram">
+                        telegram
+                    </a>
+                </li>
+                <li class="contacts_icon">
+                    <a href="https://www.facebook.com/sto.batumi">
+                        <img src="/src/img/facebook.svg" alt="facebook">
+                        facebook
+                    </a>
+                </li>
+            </ul>
+            <div class="links">
+                <a href="tel:+995591545105">+995 591 545 105</a>
+                <a target="_blank" href="https://maps.app.goo.gl/8kb6Kq7EQt6SVVVCA">68 Airport Hwy, Batumi</a>
+            </div>
+        </div>
+    </header>
+    <div class="section section__main section__white">
+        <div class="img photo photo__servis_sboku image-wrapper">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/src/img/сервис_сбоку-mob.jpg">
+                <img src="/src/img/сервис_сбоку-mob-preview.jpg" alt="сервис сбоку предварительный просмотр" aria-hidden="true" class="preview">
+                <img src="/src/img/сервис_сбоку.jpg" alt="сервис_сбоку" class="full" loading="eager" fetchpriority="high">
+            </picture>
+        </div>
+        <div class="content animate-once">
+            <h1>
+                <span>ავტოსერვისი</span>
+                <div class="bold">
+                    <span>Georgia Like Auto</span>
+                </div>
+                <span>მულტიბრენდი</span>
+            </h1>
+
+            <div class="divider"></div>
+
+            <ul class="list number">
+                <li class="list_item number_cnt">
+                    <div class="number_value counter" data-start="0" data-duration="3000">
+                        7000+
+                    </div>
+                    <div class="number_text">
+                        <span>წარმატებული რემონტი</span>
+                    </div>
+                </li>
+                <li class="list_item number_cnt">
+                    <div class="number_value counter" data-start="0" data-duration="2000">15 წელი</div>
+                    <div class="number_text">
+                        <span>მასტერების საშუალო გამოცდილება</span>
+                    </div>
+                </li>
+                <li class="list_item number_cnt">
+                    <div class="number_value counter" data-start="0" data-duration="2000">3 წელი</div>
+                    <div class="number_text">
+                        <span>ბათუმში</span>
+                    </div>
+                </li>
+                <li class="list_item number_cnt">
+                    <div class="number_value counter" data-start="0" data-duration="2000">7 დღე</div>
+                    <div class="number_text">
+                        <span>კვირაში 7 დღე, 10:00-დან 19:00-მდე</span>
+                    </div>
+                </li>
+
+
+
+            </ul>
+
+            <!-- <div class="nav">
+                <a href="#services">Услуги</a>
+                <a href="#features">О нас</a>
+                <a href="#contacts">Контакты</a>
+            </div> -->
+        </div>
+
+
+    </div>
+
+    <div class="section section__sales" id="sales">
+        <div class="img photo photo__sales">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/src/img/инструменты-mob.jpg">
+                <img src="/src/img/инструменты.jpg" alt="запчасти">
+            </picture>
+        </div>
+        <div class="content animate-once">
+            <h2>
+                <span>აქციები და ფასდაკლებები</span>
+            </h2>
+            <ul class="list list_wide">
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/pig.svg" alt>
+                    <span>ქეშბექის ბარათები</span>
+                    <div class="process_text__small">დაზოგეთ <b>7%</b> სამუშაოებსა და запчастях-ზე მუდმივი მომხმარებლის ბარათით</div>
+                </li>
+                <li class="list_item list_item_sale">
+                    <img class="list_item__img" src="/src/img/radiator.svg" alt>
+                    <span>მთელი <b>მაისი</b> ფასდაკლება <b>10%</b></span>
+                    <div class="process_text__small">გაგრილების სისტემის სამუშაოებზე, თერმოსტატებზე, ტუმბოებზე, რადიატორებსა და ანტიფრიზზე</div>
+                </li>
+            </ul>
+
+            <div class="divider"></div>
+        </div>
+    </div>
+
+
+    <div class="section section__services" id="services">
+        <div class="img photo photo__korobka_polovina">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/src/img/коробка_половина-mob.jpg">
+                <img src="/src/img/коробка_половина.jpg" alt="коробка лады">
+            </picture>
+        </div>
+        <div class="content content_wide animate-once" data-delay="0.4s">
+            <h2>მომსახურება და სპეციალიზაცია</h2>
+            <ul class="list list_wide">
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/oil.svg" alt>
+                    <span>ტექნიკური მომსახურება ☆</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/car-repair.svg" alt>
+                    <span>დიაგნოსტიკა ☆</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/chassis.svg" alt>
+                    <span>ქვედა ნაწილი ☆</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/motor.svg" alt>
+                    <span>ძრავა ☆</span>
+                </li>
+
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/brake-disk.svg" alt>
+                    <span>მუხრუჭები ☆</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/electrican.svg" alt>
+                    <span>ელექტრიკოსი</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/welding.svg" alt>
+                    <span>მეტალის შედუღება</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/transmission.svg" alt>
+                    <span>მექანიკური კოლოფი</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/leak.svg" alt>
+                    <span>გაჟონვის აღმოფხვრა</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/speedometer.svg" alt>
+                    <span>სალონის დემონტაჟი და მონტაჟი</span>
+                </li>
+
+            </ul>
+            <h2 class="toggle" data-for="#not">რასაც არ ვაკეთებთ</h2>
+            <ul class="list hidden" id="not">
+                <li class="list_item">
+                    <span>ავტომატური კოლოფის რემონტი, მაგრამ შეგვიძლია მთლიანად შევცვალოთ ან ზეთი შევცვალოთ</span>
+                </li>
+                <li class="list_item">
+                    <span>კუზოვის რემონტი</span>
+                </li>
+                <li class="list_item">
+                    <span>ფერწერა</span>
+                </li>
+                <li class="list_item">
+                    <span>შინომონტაჟი</span>
+                </li>
+                <li class="list_item">
+                    <span>კონდიციონერის დატენვა</span>
+                </li>
+                <li class="list_item">
+                    <span>სხვა</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section section__features section__white" id="features">
+        <div class="img photo photo__kluchi_na_stene">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/src/img/ключи_на_стене-mob.jpg">
+                <img src="/src/img/ключи_на_стене.jpg" alt="ключи_на_стене">
+            </picture>
+        </div>
+        <div class="content animate-once" data-delay="0.4s">
+            <h2>
+                <span>თქვენი მანქანა საიმედო ხელებშია</span>
+            </h2>
+            <ul class="list list__big">
+                <li class="list_item">
+                    <span>ყოველთვის შეგვიძლია <b>ვაჩვენოთ</b> და გავუხსნათ რა ხდება თქვენს მანქანასთან.</span>
+                </li>
+                <li class="list_item">
+                    <span>ვიცავთ <b>სისუფთავეს</b>, ვიყენებთ საფარებს, ხალიჩებს და სხვა.</span>
+                </li>
+                <li class="list_item">
+                    <span>ვმუშაობთ <b>ჩაწერით</b>, ვზოგავთ თქვენს და ჩვენს დროს.</span>
+                </li>
+                <li class="list_item">
+                    <span>შეგვიძლია შევადგინოთ სია, ვიპოვოთ ან შევუკვეთოთ <b>დამხმარე ნაწილები</b> და ზეთები.</span>
+                </li>
+                <li class="list_item">
+                    <span>ვიყენებთ <b>თანამედროვე პროგრამებს</b> ავტოსერვისებისთვის და სპეციალურ ინსტრუმენტებს.</span>
+                </li>
+                <li class="list_item">
+                    <span>ვმუშაობთ <b>ოფიციალურად</b> და ვაძლევთ ყველა საჭირო დოკუმენტს.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="section section__reviews" id="reviews">
+        <div class="img photo photo__bolgarka">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/src/img/болгарка_глушитель-mob.jpg">
+                <img src="/src/img/болгарка_глушитель.jpg" alt="болгарка глушитель">
+            </picture>
+        </div>
+        <div class="content animate-once" data-delay="0.4s">
+            <h2>შემთხვევები და მომხმარებელთა გამოხმაურებები</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="user">
+                            <img class="user_avatar" src="/src/img/yakov_yaskevich.png" alt>
+                            <div>
+                                <h4 class="user_name">Yakov Yaskevich</h4>
+                                <div class="user_rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <span>შესანიშნავი სერვისი! მანქანაზე სხვადასხვა სახის სამუშაოების შესრულება დაგვჭირდა - გამონაბოლქვის შემოწმება, გენერატორის ღვედი, საკიდების კოილოვერების რეგულირება და ასევე ბენზინის სუნის მიზეზის გარკვევა გარეთ და სალონში. მოწესრიგებულად და სწრაფად შევთანხმდით მიღების დროს, გავარკვიეთ პრობლემები და ასევე გადავხედეთ სხვა საკითხებს, ყოველთვის ვიყავით კონტაქტში, დაგვეხმარნენ ნაწილების ძიებაში, არჩევაში და შეძენაში. ყველა პრობლემა საბოლოოდ მოგვარდა, სწრაფად და ჩქარობის გარეშე - დიდი მადლობა! კვლავ დაგიკავშირდებით</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="user">
+                            <img class="user_avatar" src="/src/img/вадим_богоратов.jpeg" alt>
+                            <div>
+                                <h4 class="user_name">Вадим Богоратов</h4>
+                                <div class="user_rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <span>შესანიშნავი სერვისი, ჩაწერით, ოსტატი ალექსანდრე პროფესიონალია, ყველაფერს კარგად ხსნის რემონტის დროს და სწრაფად მუშაობს. მოემსახურა ქვედა ნაწილს და მუხრუჭებს, სამუშაოების ფართო სპექტრი. გირჩევთ 🤟</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="user">
+                            <img class="user_avatar" src="/src/img/andrey_demedyuk.png" alt>
+                            <div>
+                                <h4 class="user_name">Andrey Demedyuk</h4>
+                                <div class="user_rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <span>კარგი სერვისი: ყველაფერი სუფთაა, ფართო, არ არის ისეთი, რომ ერთი მანქანა მეორეზე დგას. W/A-ით დავწერე. ზეთის შეცვლაზე ივანესთან (ოსტატი) დავწერე. ყველაფერი სწრაფად და ხარისხიანად გაკეთდა. პარალელურად განვიხილეთ წინა საკიდების მდგომარეობა და სხვა საკითხები მანქანაზე. მომსახურება 5+.</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="user">
+                            <img class="user_avatar" src="/src/img/ya_default.png" alt>
+                            <div>
+                                <h4 class="user_name">Q Q</h4>
+                                <div class="user_rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <span>პროფესიონალები თავიანთ სფეროში! ხარისხიანი, თანმიმდევრული შესრულება, ფოტოანგარიშებით ყველა ეტაპზე)) ასევე მინდა აღვნიშნო, რომ სამუშაოები დასრულდა ვადაზე ადრე, მასზე მეტი დროის დათმობით, ვიდრე მითითებულია სერვისის სამუშაო საათებში. შესანიშნავი, ორგანიზებული მუშაობა ყველა ეტაპზე. მადლობა. ყველას გირჩევთ!</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="user">
+                            <img class="user_avatar" src="/src/img/alexander_sobolev.png" alt>
+                            <div>
+                                <h4 class="user_name">Alexander Sobolev</h4>
+                                <div class="user_rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <span>რუსეთიდან შემდეგ ბათუმში ავტოსერვისებში შესვლა საშიში იყო, დიდად არ იწვევდნენ ნდობას. შემთხვევით ვიპოვე ეს სერვისი, რუსეთიდან ბიჭები მუშაობენ, ყველაფერს მშვიდად, გონივრულად აკეთებენ, მომწონს.</span>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="badge_list">
+                <div>
+                    <iframe src="https://yandex.ru/sprav/widget/rating-badge/166475658367?type=rating" width="150" height="50" frameborder="0"></iframe>
+                </div>
+                <!-- <a href="https://maps.app.goo.gl/7J1L4RMAeL2tCVYSA" target="_blank" class="badge">
+                    <div class="badge_logo">
+                        <img src="/src/img/google_logo.png" alt="">
+                    </div>
+                    <div class="badge_data">
+                        <img src="/src/img/google.png" alt="">
+                    </div>
+                </a> -->
+            </div>
+        </div>
+    </div>
+    <div class="section section__partners section__white" id="partners">
+        <div class="img photo photo__instrumenti_na_stole">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/src/img/двигатель-mob.jpg">
+                <img src="/src/img/двигатель.jpg" alt="инструменты_на_столе">
+            </picture>
+        </div>
+        <div class="content content_wide animate-once" data-delay="0.4s">
+            <h2>როგორ ვმუშაობთ</h2>
+            <div class="process">
+                <div class="process_item" id="id0">
+                    <div class="process_img process_img__message">
+                        <img src="/src/img/send-message-64.png" alt>
+                    </div>
+                    <div class="process_title">
+                        <span>კონტაქტი</span>
+                    </div>
+                    <div class="process_text">
+                        <span>დაგვიწერეთ <b>სოციალურ ქსელებში</b> ან დაგვირეკეთ.</span>
+                        <div class="process_text__small">
+                            <span>გირჩევთ დაუყოვნებლივ მიუთითოთ მარკა, მოდელი, წელი და VIN კოდი.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="process_item" id="id1">
+                    <div class="process_img process_img__check">
+                        <img src="/src/img/car-check-64.png" alt>
+                    </div>
+                    <div class="process_title">
+                        <span>კონსულტაცია და დიაგნოსტიკა</span>
+                    </div>
+                    <div class="process_text">
+                        <span>თქვენ მოდიხართ ჩვენს სერვისში, ოსტატი ახორციელებს მანქანის <b>ინსპექტირებას</b> და თანხმდება თქვენთან სამუშაოს ღირებულებასა და ვადებზე.</span>
+                    </div>
+                </div>
+                <div class="process_item" id="id2">
+                    <div class="process_img process_img__parts">
+                        <img src="/src/img/brakes-64.png" alt>
+                    </div>
+                    <div class="process_title">
+                        <span>ნაწილები, ზეთები და სახარჯი მასალები</span>
+                    </div>
+                    <div class="process_text">
+                        <span>შეგვიძლია შევარჩიოთ, ვიპოვოთ და შევუკვეთოთ საჭირო <b>ნაწილები</b>.</span>
+                        <div class="process_text__small">
+                            <span>100% წინასწარ გადახდა. შეკვეთის ვადა 10-14 დღე. ასევე ხელმისაწვდომია თქვენი ნაწილების მონტაჟი.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="process_item" id="id3">
+                    <div class="process_img process_img__repair">
+                        <img src="/src/img/car-repair-64.png" alt>
+                    </div>
+                    <div class="process_title">
+                        <span>რემონტი და მოვლა</span>
+                    </div>
+                    <div class="process_text">
+                        <span>ჩვენი ოსტატები ასრულებენ ყველა საჭირო სახის <b>სამუშაოს</b>.</span>
+                        <div class="process_text__small">
+                            <span>გარანტია 6 თვემდე, რემონტის ტიპის მიხედვით.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="process_item" id="id4">
+                    <div class="process_img process_img__auto">
+                        <img src="/src/img/automobile-64.png" alt>
+                    </div>
+                    <div class="process_img process_img__done">
+                        <img src="/src/img/done-64.png" alt>
+                    </div>
+                    <div class="process_title">
+                        <span>მზადაა გასვლა</span>
+                    </div>
+                    <div class="process_text">
+                        <span>ჩვენ დაგიკავშირდებით, როდესაც სამუშაო დასრულებისკენ მიდის. ხორციელდება ხარისხის კონტროლი. თქვენ <b>იღებთ</b> მანქანას.</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <ul class="list">
+                <li class="list_item">Условия для бизнес-клиентов: Кэшбэк или скидка 10% при обслуживании на сумму от
+                    300+ лари в месяц.</li>
+                <li class="list_item">Преимущества партнёрства: 5% от стоимости ремонта, выплата раз в месяц.</li>
+            </ul> -->
+        </div>
+    </div>
+    <!-- <div class="section section__partners section__white" id="partners">
+        <div class="content">
+            <div class="img photo photo__instrumenti_na_stole">
+                <img src="/src/img/документы.jpg" alt="инструменты_на_столе" />
+            </div>
+            <h2>Партнёрская программа</h2>
+            <ul class="list">
+                <li class="list_item">Условия для бизнес-клиентов: Кэшбэк или скидка 10% при обслуживании на сумму от
+                    300+ лари в месяц.</li>
+                <li class="list_item">Преимущества партнёрства: 5% от стоимости ремонта, выплата раз в месяц.</li>
+            </ul>
+        </div>
+    </div> -->
+    <div class="section section__tech" id="tech">
+        <div class="img photo photo__svarka">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/src/img/сварка-mob.jpg">
+                <img src="/src/img/сварка.jpg" alt="сварка">
+            </picture>
+        </div>
+        <div class="content content_wide animate-once" data-delay="0.4s">
+
+            <h2>
+                <span>ტექნიკური შესაძლებლობები და აღჭურვილობა</span>
+            </h2>
+            <ul class="list list_wide list_odd">
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/suspension.svg" alt>
+                    <span>3 ამწე</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/press.svg" alt>
+                    <span>პრესი 20 ტონამდე</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/welding-machine.svg" alt>
+                    <span>შედუღება: ნახევრად ავტომატური და ინვერტორი</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/air-compressor.svg" alt>
+                    <span>გასაღებები, კომპრესორი</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/co2.svg" alt>
+                    <span>CO₂-ის შემოწმება სითხეებში</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/air.svg" alt>
+                    <span>წვის გენერატორი</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/tablet.svg" alt>
+                    <span>დიაგნოსტიკური აღჭურვილობა</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/timing-belt.svg" alt>
+                    <span>სპეციალური ხელსაწყოები, ფიქსატორები</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/reparation.svg" alt>
+                    <span>მრავალი ამწევი და გასაღები</span>
+                </li>
+                <li class="list_item">
+                    <img class="list_item__img" src="/src/img/crane.svg" alt>
+                    <span>1.5 ტონიანი ამწე</span>
+                </li>
+                <!-- <li class="list_item">Стенды для проверки форсунок, свечей</li> -->
+            </ul>
+        </div>
+    </div>
+    <div class="section section__contacts section__white" id="contacts">
+        <div class="img photo photo__ruka">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/src/img/рука_с_визиткой-mob.jpg">
+                <img src="/src/img/рука_с_визиткой.jpg" alt="сварка">
+            </picture>
+        </div>
+        <div class="content content_wide animate-once" data-delay="0.4s">
+            <h2>კონტაქტები</h2>
+            <div class="contacts">
+
+                <div class="contacts_text-cnt">
+                    <div class="contacts_text">
+                        <span>ტელეფონი:</span>
+                    </div>
+                    <a class="contacts_text bold" href="tel:+995591545105">+995 591 545 105</a>
+                </div>
+
+                <div class="contacts_text-cnt">
+                    <div class="contacts_text">
+                        <span>მისამართი:</span>
+                    </div>
+                    <a class="contacts_text bold" target="_blank" href="https://maps.app.goo.gl/8kb6Kq7EQt6SVVVCA">68
+                        Airport Hwy, Batumi</a>
+                </div>
+                <div class="contacts_text">
+                    <span>სამუშაო საათები: <b>ორშ-კვირა 10:00-დან 19:00-მდე</b></span>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="contacts_text">ჩვენი სოციალური ქსელები:</div>
+
+                <ul class="contacts_icons">
+                    <li class="contacts_icon">
+                        <a href="https://www.instagram.com/sto_batumi/">
+                            <img src="/src/img/instagram.svg" alt="instagram">
+                            instagram
+                        </a>
+                    </li>
+
+                    <li class="contacts_icon">
+                        <a href="https://wa.me/995591545105">
+                            <img src="/src/img/whatsapp.svg" alt="whatsapp">
+                            whatsapp
+                        </a>
+                    </li>
+                    <li class="contacts_icon">
+                        <a href="https://t.me/georgia_like_auto_batumi">
+                            <img src="/src/img/telegram.svg" alt="telegram">
+                            telegram
+                        </a>
+                    </li>
+                    <li class="contacts_icon">
+                        <a href="https://www.facebook.com/sto.batumi">
+                            <img src="/src/img/facebook.svg" alt="facebook">
+                            facebook
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2982.3931927013928!2d41.61042690000002!3d41.62563179999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406785c0dac18863%3A0xe0f88a63e67993c0!2z0JDQstGC0L7RgdC10YDQstC40YEgR2VvcmdpYSBMaWtlIEF1dG8!5e0!3m2!1sen!2sge!4v1710449357886!5m2!1sen!2sge" width="100%" height="400" class="map" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <iframe src="https://yandex.com/map-widget/v1/?z=12&ol=biz&oid=166475658367" width="100%" height="500" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>ავტოსერვისი Georgia Like Auto © 2025</p>
+    </footer>
+    <script>
+        const toggler = (e) => {
+            document.querySelector(e.target.getAttribute('data-for')).classList.toggle('hidden');
+        }
+        document.querySelector('.toggle').addEventListener('click', toggler);
+    </script>
+    <!-- Swiper JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/arrow-line/dist/arrow-line.min.js"></script>
+
+    <!-- Initialize Swiper -->
+
+    <script defer src="/src/script.js"></script>
+    <script defer src="/src/language.js"></script>
+</body>
+
+</html>

@@ -769,7 +769,7 @@ section .content {
     height: 10px;
     width: 100%;
     background-color: var(--accent-color);
-    background-image: url(/img/фон.svg);
+    background-image: url(/src/img/фон.svg);
     transform: rotate(-1.7deg);
     position: absolute;
     top: 14px;
