@@ -30,24 +30,25 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         debug: true
         script: |
-          echo "Testing SSH connection..."
-          whoami
-          pwd
-          ls -la
+          echo "Installing Node.js..."
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          nvm install 22
+          nvm use 22
+          
           echo "Starting deployment..."
           cd /home/botuser/sto-batumi
           
-          echo "Stashing local changes..."
-          git stash
+          echo "Cleaning up dist directory..."
+          rm -rf dist/*
           
           echo "Pulling latest changes..."
-          git pull origin master
+          git fetch origin
+          git reset --hard origin/master
           
           echo "Installing dependencies..."
           npm install
           
           echo "Building project..."
-          npm run build
-          
-          echo "Restoring stashed changes..."
-          git stash pop 
+          npm run build 
