@@ -4,7 +4,9 @@
   "scripts": {
     "prebuild": "npm run i18n && node copy-i18n.js",
     "dev": "parcel src/index.html",
-    "i18n": "rimraf temp && mkdir temp && mkdir temp\\locales && copy src\\index.html temp\\ && copy src\\locales\\* temp\\locales\\ && static-i18n -l en -i en -l ru -i ru -l ka -i ka temp --allow-html && rimraf temp",
+    "i18n:win": "rimraf temp && mkdir temp && mkdir temp\\locales && copy src\\index.html temp\\ && xcopy /E /I src\\locales\\* temp\\locales\\ && static-i18n -l en -i en -l ru -i ru -l ka -i ka temp --allow-html && rimraf temp",
+    "i18n:linux": "rimraf temp && mkdir -p temp/locales && cp src/index.html temp/ && cp -r src/locales/* temp/locales/ && static-i18n -l en -i en -l ru -i ru -l ka -i ka temp --allow-html && rimraf temp",
+    "i18n": "node -e \"process.platform === 'win32' ? require('child_process').execSync('npm run i18n:win', {stdio: 'inherit'}) : require('child_process').execSync('npm run i18n:linux', {stdio: 'inherit'})\"",
     "build": "parcel build src/en.index.html src/ru.index.html src/ka.index.html --dist-dir dist --public-url ./",
     "deploy": "bash deploy.sh"
   },
