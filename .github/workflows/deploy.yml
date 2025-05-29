@@ -28,7 +28,15 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
+        key_path: /tmp/deploy_key
+        script_stop: true
+        debug: true
         script: |
+          echo "Testing SSH connection..."
+          whoami
+          pwd
+          ls -la
+          echo "Starting deployment..."
           cd /home/botuser/sto-batumi
           git pull origin master
           npm install
