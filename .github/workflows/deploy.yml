@@ -36,6 +36,18 @@ jobs:
           ls -la
           echo "Starting deployment..."
           cd /home/botuser/sto-batumi
+          
+          echo "Stashing local changes..."
+          git stash
+          
+          echo "Pulling latest changes..."
           git pull origin master
+          
+          echo "Installing dependencies..."
           npm install
-          npm run build 
+          
+          echo "Building project..."
+          npm run build
+          
+          echo "Restoring stashed changes..."
+          git stash pop 
