@@ -28,8 +28,6 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        key_path: /tmp/deploy_key
-        script_stop: true
         debug: true
         script: |
           echo "Testing SSH connection..."
