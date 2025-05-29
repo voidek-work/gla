@@ -2,10 +2,10 @@
   "name": "@voidek-work/gla",
   "version": "1.0.0",
   "scripts": {
-    "prebuild": "npm run i18n",
+    "prebuild": "npm run i18n && node copy-i18n.js",
     "dev": "parcel src/index.html",
     "i18n": "rimraf temp && mkdir temp && mkdir temp\\locales && copy src\\index.html temp\\ && copy src\\locales\\* temp\\locales\\ && static-i18n -l en -i en -l ru -i ru -l ka -i ka temp --allow-html && rimraf temp",
-    "build": "parcel build i18n/en/index.html i18n/ru/index.html i18n/ka/index.html --dist-dir dist --public-url ./"
+    "build": "parcel build src/en.index.html src/ru.index.html src/ka.index.html --dist-dir dist --public-url ./"
   },
   "keywords": [],
   "author": "",
