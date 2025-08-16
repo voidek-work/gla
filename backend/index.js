@@ -186,7 +186,9 @@ app.post('/admin/update/:id', checkAuth, upload.single('image'), async (req, res
 // Delete promotion
 app.post('/admin/delete/:id', checkAuth, async (req, res) => {
     try {
-        await pool.query('DELETE FROM promotions WHERE id = $1', [req.params.id]);
+        console.log('Attempting to delete promotion with ID:', req.params.id);
+        const result = await pool.query('DELETE FROM promotions WHERE id = $1', [req.params.id]);
+        console.log('Rows affected by DELETE:', result.rowCount);
         res.redirect('/admin');
     } catch (err) {
         console.error(err);
