@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Promotion - Promotions Manager</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Promotion</h2>
+        <form action="/admin/update/<%= promotion.id %>" method="POST">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="<%= promotion.title %>" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"><%= promotion.description %></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image_src">Image Source (URL or path):</label>
+                <input type="text" id="image_src" name="image_src" value="<%= promotion.image_src || '' %>">
+            </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="is_active" name="is_active" <%= promotion.is_active ? 'checked' : '' %>>
+                <label for="is_active">Is Active</label>
+            </div>
+            <button type="submit">Update Promotion</button>
+            <a href="/admin" class="button cancel-button">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

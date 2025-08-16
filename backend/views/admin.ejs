@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Promotions Manager</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Promotions Admin Panel</h2>
+        <a href="/logout" class="button logout-button">Logout</a>
+
+        <h3>Add New Promotion</h3>
+        <form action="/admin/add" method="POST" class="add-form">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image_src">Image Source (URL or path):</label>
+                <input type="text" id="image_src" name="image_src">
+            </div>
+            <button type="submit">Add Promotion</button>
+        </form>
+
+        <h3>Existing Promotions</h3>
+        <% if (promotions.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Active</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% promotions.forEach(promo => { %>
+                        <tr>
+                            <td><%= promo.id %></td>
+                            <td><%= promo.title %></td>
+                            <td><%= promo.description %></td>
+                            <td>
+                                <% if (promo.image_src) { %>
+                                    <img src="<%= promo.image_src %>" alt="<%= promo.title %>" class="promo-img-thumb">
+                                <% } else { %>
+                                    No Image
+                                <% } %>
+                            </td>
+                            <td><%= promo.is_active ? 'Yes' : 'No' %></td>
+                            <td class="actions">
+                                <a href="/admin/edit/<%= promo.id %>" class="button edit-button">Edit</a>
+                                <form action="/admin/delete/<%= promo.id %>" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this promotion?');">
+                                    <button type="submit" class="button delete-button">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No promotions found. Add one above!</p>
+        <% } %>
+    </div>
+</body>
+</html>
