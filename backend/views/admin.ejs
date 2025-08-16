@@ -12,7 +12,7 @@
         <a href="/logout" class="button logout-button">Logout</a>
 
         <h3>Add New Promotion</h3>
-        <form action="/admin/add" method="POST" class="add-form">
+        <form action="/admin/add" method="POST" class="add-form" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>
@@ -22,8 +22,12 @@
                 <textarea id="description" name="description"></textarea>
             </div>
             <div class="form-group">
-                <label for="image_src">Image Source (URL or path):</label>
-                <input type="text" id="image_src" name="image_src">
+                <label for="image">Upload Image (SVG or PNG):</label>
+                <input type="file" id="image" name="image" accept=".svg, .png">
+            </div>
+            <div class="form-group">
+                <label for="image_src_url">Or Image Source (URL):</label>
+                <input type="text" id="image_src_url" name="image_src_url">
             </div>
             <button type="submit">Add Promotion</button>
         </form>

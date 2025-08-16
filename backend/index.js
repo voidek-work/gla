@@ -8,6 +8,8 @@ const { Pool } = require('pg');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const multer = require('multer'); // Import multer
+const path = require('path'); // Import path module
 
 // --- App & Middleware Setup ---
 const app = express();
@@ -23,6 +25,27 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 60 * 60 * 1000 } // 1 hour
 }));
+
+// --- Multer Setup for File Uploads ---
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads/'); // Files will be stored in public/uploads/
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    // Allow only SVG and PNG files
+    if (file.mimetype === 'image/svg+xml' || file.mimetype === 'image/png') {
+        cb(null, true);
+    } else {
+        cb(new Error('Only SVG and PNG files are allowed!'), false);
+    }
+};
+
+const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 // --- Database Connection ---
 const pool = new Pool({
@@ -96,8 +119,14 @@ app.get('/admin', checkAuth, async (req, res) => {
 });
 
 // Add new promotion
-app.post('/admin/add', checkAuth, async (req, res) => {
-    const { title, description, image_src } = req.body;
+app.post('/admin/add', checkAuth, upload.single('image'), async (req, res) => {
+    const { title, description } = req.body;
+    let image_src = req.body.image_src_url; // Use this for URL if no file uploaded
+
+    if (req.file) {
+        image_src = '/uploads/' + req.file.filename; // Path to the uploaded file
+    }
+
     try {
         await pool.query(
             'INSERT INTO promotions (title, description, image_src) VALUES ($1, $2, $3)',
@@ -126,9 +155,17 @@ app.get('/admin/edit/:id', checkAuth, async (req, res) => {
 });
 
 // Update promotion
-app.post('/admin/update/:id', checkAuth, async (req, res) => {
+app.post('/admin/update/:id', checkAuth, upload.single('image'), async (req, res) => {
     const { id } = req.params;
-    const { title, description, image_src, is_active } = req.body;
+    const { title, description, is_active } = req.body;
+    let image_src = req.body.image_src_url_existing; // Existing URL if no new file uploaded
+
+    if (req.file) {
+        image_src = '/uploads/' + req.file.filename; // New uploaded file
+    } else if (req.body.image_src_url_new) {
+        image_src = req.body.image_src_url_new; // New URL provided
+    }
+
     // Convert checkbox value to boolean
     const isActiveBool = is_active === 'on';
     try {
