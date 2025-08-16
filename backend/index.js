@@ -123,7 +123,7 @@ app.get('/admin', checkAuth, async (req, res) => {
 
 // Add new promotion
 app.post('/admin/add', checkAuth, upload.single('image'), async (req, res) => {
-    const { title, description } = req.body;
+    const { title_ru, description_ru, title_en, description_en, title_ka, description_ka } = req.body;
     let image_src = req.body.image_src_url; // Use this for URL if no file uploaded
 
     if (req.file) {
@@ -132,8 +132,8 @@ app.post('/admin/add', checkAuth, upload.single('image'), async (req, res) => {
 
     try {
         await pool.query(
-            'INSERT INTO promotions (title, description, image_src) VALUES ($1, $2, $3)',
-            [title, description, image_src]
+            'INSERT INTO promotions (title_ru, description_ru, title_en, description_en, title_ka, description_ka, image_src) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+            [title_ru, description_ru, title_en, description_en, title_ka, description_ka, image_src]
         );
         res.redirect('/admin');
     } catch (err) {
@@ -160,7 +160,7 @@ app.get('/admin/edit/:id', checkAuth, async (req, res) => {
 // Update promotion
 app.post('/admin/update/:id', checkAuth, upload.single('image'), async (req, res) => {
     const { id } = req.params;
-    const { title, description, is_active } = req.body;
+    const { title_ru, description_ru, title_en, description_en, title_ka, description_ka, is_active } = req.body;
     let image_src = req.body.image_src_url_existing; // Existing URL if no new file uploaded
 
     if (req.file) {
@@ -173,8 +173,8 @@ app.post('/admin/update/:id', checkAuth, upload.single('image'), async (req, res
     const isActiveBool = is_active === 'on';
     try {
         await pool.query(
-            'UPDATE promotions SET title = $1, description = $2, image_src = $3, is_active = $4 WHERE id = $5',
-            [title, description, image_src, isActiveBool, id]
+            'UPDATE promotions SET title_ru = $1, description_ru = $2, title_en = $3, description_en = $4, title_ka = $5, description_ka = $6, image_src = $7, is_active = $8 WHERE id = $9',
+            [title_ru, description_ru, title_en, description_en, title_ka, description_ka, image_src, isActiveBool, id]
         );
         res.redirect('/admin');
     } catch (err) {

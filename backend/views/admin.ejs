@@ -14,12 +14,28 @@
         <h3>Add New Promotion</h3>
         <form action="/admin/add" method="POST" class="add-form" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
+                <label for="title_ru">Title (Russian):</label>
+                <input type="text" id="title_ru" name="title_ru" required>
             </div>
             <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description" name="description"></textarea>
+                <label for="description_ru">Description (Russian):</label>
+                <textarea id="description_ru" name="description_ru"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="title_en">Title (English):</label>
+                <input type="text" id="title_en" name="title_en">
+            </div>
+            <div class="form-group">
+                <label for="description_en">Description (English):</label>
+                <textarea id="description_en" name="description_en"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="title_ka">Title (Georgian):</label>
+                <input type="text" id="title_ka" name="title_ka">
+            </div>
+            <div class="form-group">
+                <label for="description_ka">Description (Georgian):</label>
+                <textarea id="description_ka" name="description_ka"></textarea>
             </div>
             <div class="form-group">
                 <label for="image">Upload Image (SVG or PNG):</label>
@@ -38,8 +54,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Title</th>
-                        <th>Description</th>
+                        <th>Title (RU)</th>
+                        <th>Description (RU)</th>
                         <th>Image</th>
                         <th>Active</th>
                         <th>Actions</th>
@@ -49,8 +65,8 @@
                     <% promotions.forEach(promo => { %>
                         <tr>
                             <td><%= promo.id %></td>
-                            <td><%= promo.title %></td>
-                            <td><%= promo.description %></td>
+                            <td><%= promo.title_ru %></td>
+                            <td><%= promo.description_ru %></td>
                             <td>
                                 <% if (promo.image_src) { %>
                                     <img src="<%= promo.image_src %>" alt="<%= promo.title %>" class="promo-img-thumb">
