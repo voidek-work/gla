@@ -26,6 +26,9 @@ app.use(session({
     cookie: { maxAge: 60 * 60 * 1000 } // 1 hour
 }));
 
+app.set('trust proxy', 1); // Trust the Nginx proxy
+
+
 // --- Multer Setup for File Uploads ---
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
