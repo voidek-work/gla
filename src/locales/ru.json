@@ -1,6 +1,9 @@
 {
   "title": "Автосервис",
   "company_name": "Georgia Like Auto",
+  "complex_maintenance": "Комплексное техническое обслуживание автомобиля",
+  "just_enjoy_driving": "Вам остаётся просто наслаждаться вождением",
+  "make_appointment": "Записаться на обслуживание",
   "multibrand": "Мультибренд",
   "successful_repairs": "успешных ремонтов",
   "successful_repairs_count": "7000+",
