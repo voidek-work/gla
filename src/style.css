@@ -312,12 +312,14 @@ section .content {
 .hidden {
   height: 0;
   opacity: 0;
+  overflow: hidden;
 }
 
 .toggle {
   font-size: 14px;
   text-decoration: underline;
   margin-left: 21px;
+  cursor: pointer;
 }
 
 .swiper {
@@ -1080,6 +1082,32 @@ section .content {
 .button a {
   color: var(--second-color);
   text-decoration: none;
+}
+
+.price-list {
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.price-list .list_item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.price-list .list_item:last-child {
+  border-bottom: none;
+}
+
+.price-list .list_item span {
+  text-align: left;
+}
+
+.price-list .list_item b {
+  white-space: nowrap;
+  margin-left: 10px;
 }
 
 @media screen and (min-width: 769px) {
