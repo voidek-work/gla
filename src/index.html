@@ -329,30 +329,6 @@
                 </li>
 
             </ul>
-            <h2 class="toggle" data-for="#not" data-t="what_we_dont_do">
-                Чем мы НЕ занимаемся
-            </h2>
-            <ul class="list hidden" id="not">
-                <li class="list_item">
-                    <span data-t="automatic_transmission">Ремонт АКПП, но можем заменить коробку целиком или поменять
-                        масло</span>
-                </li>
-                <li class="list_item">
-                    <span data-t="body_repair">Кузовной ремонт</span>
-                </li>
-                <li class="list_item">
-                    <span data-t="painting">Покраска</span>
-                </li>
-                <li class="list_item">
-                    <span data-t="tire_service">Шиномонтаж</span>
-                </li>
-                <li class="list_item">
-                    <span data-t="ac_service">Заправка кондиционеров</span>
-                </li>
-                <li class="list_item">
-                    <span data-t="other">Хернёй</span>
-                </li>
-            </ul>
         </div>
     </div>
 
@@ -797,8 +773,9 @@
             </ul>
 
             <h2 class="toggle" data-for="#full-price"
-                style="margin-top: 30px; cursor: pointer; color: #bf5757; text-decoration: underline;">
-                <span data-t="show_full_price_list">Показать полный прайс-лист ▼</span>
+                style="margin-top: 30px; cursor: pointer; color: #bf5757; text-decoration: underline;"
+                data-t="show_full_price_list">
+                Показать полный прайс-лист ▼
             </h2>
 
             <div id="full-price" class="hidden">
@@ -972,6 +949,8 @@
         const togglers = document.querySelectorAll('.toggle');
         togglers.forEach(t => {
             t.addEventListener('click', (e) => {
+                console.log(e);
+                
                 document.querySelector(e.target.getAttribute('data-for')).classList.toggle('hidden');
             });
         });
