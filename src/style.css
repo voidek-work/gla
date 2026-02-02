@@ -102,7 +102,7 @@ footer {
 }
 
 .section__features .content {
-  margin-bottom: -94px;
+  margin-bottom: 0;
   min-height: calc(100vh - 260px);
 }
 
