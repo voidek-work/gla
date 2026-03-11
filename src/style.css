@@ -46,7 +46,7 @@ body {
 }
 
 .header {
-  padding: 6px 20px;
+  padding: 6px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,9 +62,126 @@ body {
   text-decoration: none;
 }
 
-.nav-contacts .contacts_icons {
-  display: none;
+/* --- BURGER BUTTON & MOBILE MENU --- */
+.burger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 20;
 }
+
+.burger-btn span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--second-color);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+html.menu-open,
+body.menu-open {
+  overflow: hidden;
+}
+
+body.menu-open .burger-btn span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+body.menu-open .burger-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open .burger-btn span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+.nav-contacts {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--accent-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  transition: right 0.4s ease-in-out;
+  z-index: 10;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+body.menu-open .nav-contacts {
+  right: 0;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--second-color);
+}
+
+/* Larger fonts and spacing inside mobile menu */
+.nav-contacts .sales-link {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+  margin-right: 0;
+}
+
+.nav-contacts .language-switcher {
+  gap: 25px;
+}
+
+.nav-contacts .lang-link {
+  font-size: 24px;
+  padding: 10px 15px;
+}
+
+.nav-contacts .links {
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-contacts .links a {
+  font-size: 22px;
+}
+
+.nav-contacts .contacts_icons {
+  display: flex;
+  margin: 0;
+  gap: 25px;
+}
+
+.nav-contacts .contacts_icon {
+  width: 45px;
+}
+
+.nav-contacts .contacts_icon a {
+  font-size: 14px;
+}
+
+.nav-contacts .contacts_icon img {
+  width: 100%;
+  filter: grayscale(1) brightness(0) invert(1);
+}
+
+/* --- END BURGER BUTTON & MOBILE MENU --- */
 
 footer {
   text-align: center;
@@ -143,9 +260,17 @@ section .content {
   padding-left: 20px;
 }
 
+
 .logo {
-  width: 140px;
+  width: 300px;
+  margin: auto;
 }
+
+.logo picture {
+  margin-left: -15px;
+}
+
+
 
 .links {
   display: flex;
@@ -550,7 +675,7 @@ section .content {
 }
 
 .sales-link {
-  display: none;
+  /* display: none; */
   margin-right: 8px;
 }
 
@@ -1125,18 +1250,74 @@ section .content {
   }
 
   .nav-contacts {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: auto;
+    width: auto;
+    flex-grow: 1;
+    background-color: transparent;
+    padding: 0;
+    gap: 15px;
+    overflow-y: visible;
     display: flex;
     align-items: center;
+  }
+
+  .burger-btn {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    order: 3;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 5px;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+    text-transform: none;
+    font-weight: bold;
+    color: var(--second-color);
+    text-decoration: none;
+  }
+
+  /* Reset overrides for desktop */
+  .nav-contacts .sales-link {
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 8px;
+  }
+
+  .nav-contacts .language-switcher {
+    gap: 10px;
+  }
+
+  .nav-contacts .lang-link {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .nav-contacts .links {
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .nav-contacts .links a {
+    font-size: 14px;
   }
 
   .nav-contacts .contacts_icons {
     margin: 0;
     display: flex;
-  }
-
-  .nav-contacts .contacts_icon img {
-    width: 100%;
-    filter: grayscale(1) brightness(0) invert(1);
+    gap: 10px;
   }
 
   .nav-contacts .contacts_icon {
@@ -1154,8 +1335,9 @@ section .content {
   }
 
   .logo {
-    /* height: 100px; */
+    width: 140px;
     height: 62px;
+    margin: 0;
   }
 
   .section .photo {

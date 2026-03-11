@@ -52,6 +52,7 @@
     <meta name="geo.placename" content="Batumi">
     <meta name="geo.position" content="41.6256;41.6104">
     <meta name="ICBM" content="41.6256, 41.6104">
+    <meta name="yandex-verification" content="b46cee70ebb65929">
 
     <link rel="canonical" href="https://sto-batumi.ge/ka/">
 
@@ -75,7 +76,17 @@
                 <img src="/src/img/logo.svg" alt="logo">
             </picture>
         </div>
+        <div class="burger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="nav-contacts">
+            <nav class="nav-links">
+                <a href="#services">services</a>
+                <a href="#features">features</a>
+                <a href="#contacts">კონტაქტები</a>
+            </nav>
             <a class="sales-link" href="#sales">აქციები 🫰</a>
             <div class="language-switcher">
                 <a href="/ru/" class="lang-link" data-lang="ru">RU</a>
@@ -304,27 +315,6 @@
                     <span>სალონის დემონტაჟი და მონტაჟი</span>
                 </li>
 
-            </ul>
-            <h2 class="toggle" data-for="#not">რასაც არ ვაკეთებთ</h2>
-            <ul class="list hidden" id="not">
-                <li class="list_item">
-                    <span>ავტომატური კოლოფის რემონტი, მაგრამ შეგვიძლია მთლიანად შევცვალოთ ან ზეთი შევცვალოთ</span>
-                </li>
-                <li class="list_item">
-                    <span>კუზოვის რემონტი</span>
-                </li>
-                <li class="list_item">
-                    <span>ფერწერა</span>
-                </li>
-                <li class="list_item">
-                    <span>შინომონტაჟი</span>
-                </li>
-                <li class="list_item">
-                    <span>კონდიციონერის დატენვა</span>
-                </li>
-                <li class="list_item">
-                    <span>სხვა</span>
-                </li>
             </ul>
         </div>
     </div>
@@ -716,9 +706,7 @@
                 </li>
             </ul>
 
-            <h2 class="toggle" data-for="#full-price" style="margin-top: 30px; cursor: pointer; color: #bf5757; text-decoration: underline;">
-                <span>სრული ფასების ნახვა ▼</span>
-            </h2>
+            <h2 class="toggle" data-for="#full-price" style="margin-top: 30px; cursor: pointer; color: #bf5757; text-decoration: underline;">სრული ფასების ნახვა ▼</h2>
 
             <div id="full-price" class="hidden">
 
@@ -852,6 +840,8 @@
         const togglers = document.querySelectorAll('.toggle');
         togglers.forEach(t => {
             t.addEventListener('click', (e) => {
+                console.log(e);
+
                 document.querySelector(e.target.getAttribute('data-for')).classList.toggle('hidden');
             });
         });
@@ -866,6 +856,9 @@
     <script defer src="/src/script.js"></script>
     <script defer src="/src/language.js"></script>
     <script defer src="/src/promotions.js"></script>
+
+    <!-- <script src="https://rerada.com/w/widget.js" data-rerada-uid="0bc5da5a10fd4cd17a263905a55f3aa3"></script> -->
+    <script src="//code.jivo.ru/widget/xQSqhuNUlg" async></script>
 </body>
 
 </html>

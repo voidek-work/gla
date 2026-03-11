@@ -103,3 +103,20 @@ if (img.complete) {
         this.classList.add('loaded');
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const burgerBtn = document.querySelector('.burger-btn');
+    const navLinks = document.querySelectorAll('.nav-links a, .sales-link, .lang-link, .contacts_icon a, .links a');
+
+    if (burgerBtn) {
+        burgerBtn.addEventListener('click', () => {
+            document.body.classList.toggle('menu-open');
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            document.body.classList.remove('menu-open');
+        });
+    });
+});
